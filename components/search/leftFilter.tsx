@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import Image from 'next/image'
+import Icon from '../../Icon/plus_icon.png'
 
 export default function Filter () {
   return (
@@ -16,7 +18,7 @@ export default function Filter () {
         </TitleBox>
         <IconBox>
           <img  alt="" />
-          {/* <Image></Image> */}
+          {/* <Image src={Icon}></Image> */}
         </IconBox>
       </FilterTitle>
       <FilterMenu>

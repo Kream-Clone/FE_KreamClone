@@ -1,10 +1,10 @@
 
+import Item from 'components/search/Item';
 import Filter from 'components/search/leftFilter';
+import Sort from 'components/search/topSort';
 import styled from 'styled-components'
 import Top from '../components/search/top'
 import SearchTrend from '../components/search/trend';
-// import Image from 'next/image';
-// import Plus from '../Icon/plus_icon.png'
 
 export default function Search () {
   return (
@@ -16,6 +16,10 @@ export default function Search () {
       </BannerSide>
       <Content>
         <Filter/>
+        <SearchContent>
+          <Sort/>
+          <Item/>
+        </SearchContent>
       </Content>
     </Layer>
     
@@ -41,4 +45,10 @@ const Content = styled.div`
     margin: 0 auto;
     padding: 0 40px 80px;
     max-width: 1280px;
+`
+
+const SearchContent = styled.div`
+
+      -webkit-box-flex: 1;
+    flex: 1;
 `
