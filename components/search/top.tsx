@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import FilterIcon from '../../Icon/filter_icon.png'
 export default function Top () {
   return(
     <SearchTop>
@@ -10,7 +10,7 @@ export default function Top () {
           <QuickFilter>
             <QuickFilterBox>
               <QuickFilterBtn>
-                <img src="" alt="" />
+                <img src={FilterIcon} alt="" />
               </QuickFilterBtn>  
             </QuickFilterBox>
             <Lux>럭셔리</Lux>
@@ -79,7 +79,7 @@ const QuickFilterBtn =styled.div`
     letter-spacing: -.15px;
     vertical-align: top;
     img{
-      border: solid red 1px;
+
       width: 20px;
     height: 20px;
     }

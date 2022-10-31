@@ -1,6 +1,13 @@
 import styled from 'styled-components'
-
+import ExpressIcon from '../../Icon/express_icon.svg'
+import Bookmark from '../../Icon/bookmark.png'
+import BookmarkRed from '../../Icon/bookmark_red.png'
+import Comment from '../../Icon/comment_icon.png'
+import { useState } from 'react'
 export default function Item () {
+
+  const [checkMark,setCheckMark] = useState(false);
+
   return (
     <SearchResult>
     <ResultList>
@@ -16,7 +23,7 @@ export default function Item () {
               <p>나이키 에어포스 1 '07 로우 화이트</p>
             </Title>
             <ExpressBtn>
-              <img></img>
+              <img src={ExpressIcon}></img>
               <span>빠른배송</span>
             </ExpressBtn>
             <Price>
@@ -27,11 +34,11 @@ export default function Item () {
         </ItemInner>
         <Figure>
           <Wish>
-            <img src="" alt="" />
+            <img src={checkMark? BookmarkRed : Bookmark } onClick={()=>setCheckMark(!checkMark)} alt="" />
             <span>13.1만</span>
           </Wish>
           <Wish>
-            <img src="" alt="" />
+            <img src={Comment} alt="" />
             <span>13.1만</span>
           </Wish>
         </Figure>
@@ -121,7 +128,6 @@ position: relative;
     letter-spacing: -.33px;
     height: 20px;
     img {
-    border: solid red 1px;
     position: absolute;
     left: 3.5px;
     top: 3px;
@@ -155,7 +161,6 @@ const Wish = styled.div`
     padding: 0 8px;
     height: 20px;
   img {
-    border : solid red 1px;
     width: 20px;
     height: 20px;
   }

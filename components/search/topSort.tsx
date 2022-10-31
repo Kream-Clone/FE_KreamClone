@@ -2,6 +2,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import CheckIcon from '../../Icon/check_icon.png'
 import SortIcon from '../../Icon/sort_icon.svg'
+import ExpressIcon from '../../Icon/express_icon.svg'
 
 export default function Sort () {
 
@@ -14,7 +15,7 @@ return (
   <FilterBtn>
     <ExpressBtn>
       <Btn>
-        <img></img>
+        <img src={ExpressIcon} ></img>
         <span>빠른배송</span>
       </Btn>
     </ExpressBtn>
@@ -95,7 +96,6 @@ const Btn =styled.div`
     border: 1px solid #ebebeb;
     border-radius: 17px;
     img {
-      border: solid red 1px;
       width: 10px;
     height: 12px;
     margin-top: 2px;

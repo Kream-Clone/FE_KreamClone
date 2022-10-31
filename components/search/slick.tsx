@@ -9,28 +9,39 @@ export default class SimpleSlider extends Component {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 4000,
+      arrows :false,
+      autoplay:true,
+      autoplaySpeed: 2000
     };
     return (
       <Banner>
+
         <StyledSlider {...settings}>
-          <div>3
+          <div>
+            <h3>1</h3>
           </div>
-          <div>2
+          <div>
+            <h3>2</h3>
           </div>
-          <div>1
+          <div>
+            <h3>3</h3>
           </div>
-          <div>3
+          <div>
+            <h3>4</h3>
           </div>
-          <div>4
+          <div>
+            <h3>5</h3>
+          </div>
+          <div>
+            <h3>6</h3>
           </div>
         </StyledSlider>
       </Banner>
-
     );
   }
 }
+
+
 const StyledSlider = styled(Slider)`
   .slick-slide div {
     height: 100px;
@@ -39,6 +50,7 @@ const StyledSlider = styled(Slider)`
   }
   .slick-prev:before,
   .slick-next:before {
+    display:hidden;
     font-family: 'slick';
     font-size: 30px;
     line-height: 1;

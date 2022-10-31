@@ -34,7 +34,6 @@ const Layer = styled.div`
 overflow: hidden;
 `
 const BannerSide = styled.div`
-  border: solid black 3px;
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 40px;
