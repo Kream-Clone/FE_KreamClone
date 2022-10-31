@@ -48,41 +48,6 @@ const StyledSlider = styled(Slider)`
     position: relative;
     outline: none;
   }
-  .slick-prev:before,
-  .slick-next:before {
-    display:hidden;
-    font-family: 'slick';
-    font-size: 30px;
-    line-height: 1;
-    opacity: 0.75;
-    color: gray;
-  }
-  .slick-prev {
-    left: 25px;
-    z-index: 1;
-  }
-
-  [dir='rtl'] .slick-prev {
-    right: 25px;
-    z-index: 1;
-    left: auto;
-  }
-  .slick-prev:before {
-    content: '←';
-  }
-  [dir='rtl'] .slick-prev:before {
-    content: '→';
-  }
-
-  .slick-next {
-    right: 25px;
-    z-index: 1;
-  }
-  [dir='rtl'] .slick-next {
-    right: auto;
-    left: 25px;
-    z-index: 1;
-  }
 `
 const Banner =styled.div`
 border: solid black 1px;
