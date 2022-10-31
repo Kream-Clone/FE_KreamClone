@@ -4,6 +4,24 @@ import { media } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
     ${reset}
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+    p{
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
+    li{
+        cursor:pointer;
+    }
+    ul, ol, li{
+        list-style:none;
+    }
     :focus {
         outline: none;
         border: none;

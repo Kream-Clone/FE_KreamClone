@@ -7,6 +7,10 @@ module.exports = withBundleAnalyzer({
   env: {
     BASE_URL: process.env.BASE_URL,
   },
+  compiler: {
+    // Enables the styled-components SWC transform
+    styledComponents: true
+  },
 
   webpack(conf) {
     conf.module.rules.push({
