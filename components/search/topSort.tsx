@@ -1,6 +1,13 @@
+import { useState } from 'react'
 import styled from 'styled-components'
+import CheckIcon from '../../Icon/check_icon.png'
+import SortIcon from '../../Icon/sort_icon.svg'
 
 export default function Sort () {
+
+  const [sortList, setSortList] = useState(false)
+
+
 
 return (
   <SearchOption>
@@ -12,17 +19,55 @@ return (
       </Btn>
     </ExpressBtn>
     <BrandBtm>
-       <Btn>
+      <Btn>
         <span>브랜드배송</span>
       </Btn>
     </BrandBtm>
   </FilterBtn>
   <Sorting>
-    <SortingTitle>
+    <SortingTitle onClick={()=>setSortList(!sortList)}>
       <span>인기순</span>
-      <img></img>
+      <img src={SortIcon}></img>
     </SortingTitle>
-    {/* hidden */}
+    {sortList &&  
+    <SortingList>
+      <li>
+        <Desc>
+          <p>즉시 구매가순</p>
+          <p>많이 판매된 순서대로 정렬합니다.</p>
+        </Desc>
+        <Check src={CheckIcon}></Check>
+      </li>
+      <li>
+        <Desc>
+          <p>프리미엄순</p>
+          <p>발매가 대비 가격이 높은 순서대로 정렬합니다.</p>
+        </Desc>
+        <Check src={CheckIcon}></Check>
+      </li>
+      <li>
+        <Desc>
+          <p>즉시 구매가순</p>
+          <p>즉시 구매가가 낮은 순서대로 정렬합니다.</p>
+        </Desc>
+        <Check src={CheckIcon}></Check>
+      </li>
+      <li>
+        <Desc>
+          <p>즉시 판매가순</p>
+          <p>즉시 판매가가 높은 순서대로 정렬합니다.</p>
+        </Desc>
+        <Check src={CheckIcon}></Check>
+      </li>
+      <li>
+        <Desc>
+          <p>발매일순</p>
+          <p>최신 상품 순서대로 정렬합니다. 아직 발매 전인 상품이 노출될 수 있습니다.</p>
+        </Desc>
+        <Check src={CheckIcon}></Check>
+      </li>
+    </SortingList>}
+   
   </Sorting>
 </SearchOption>
 )
@@ -84,4 +129,45 @@ display: flex;
     height: 24px;
 
     }
+`
+const SortingList = styled.ul`
+    overflow: hidden;
+    position: absolute;
+    top: 28px;
+    right: 0;
+    width: 278px;
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+    -webkit-box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+    z-index: 10;
+    li {
+      position: relative;
+    display: block;
+    padding: 12px 36px 12px 16px;
+    }
+`
+
+const Desc =styled.div`
+  p{
+    color: #222;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: -.21px;
+    &:last-child{
+      padding-top: 4px;
+    font-size: 12px;
+    letter-spacing: -.06px;
+    color: rgba(34,34,34,.5);
+    }
+  }
+`
+const Check =styled.img`
+border: solid red 1px;
+  position: absolute;
+    top: 50%;
+    right: 12px;
+    margin-top: -12px;
+    width: 24px;
+    height: 24px;
 `

@@ -1,8 +1,12 @@
 import styled from 'styled-components'
-import Image from 'next/image'
 import Icon from '../../Icon/plus_icon.png'
+import Minus from '../../Icon/minus_icon.png'
+import { useState } from 'react'
 
 export default function Filter () {
+
+  const [dropFilter,setDropFilter] = useState(false)
+
   return (
     <SearchFilter>
     <FilterStatus>
@@ -14,15 +18,32 @@ export default function Filter () {
       <FilterTitle>
         <TitleBox>
           <span>카테고리</span>
-          <span>모든 카테고리</span>
+          <span style={{display: dropFilter ? 'none' :'block'}} >모든 카테고리</span>
         </TitleBox>
-        <IconBox>
-          <img  alt="" />
-          {/* <Image src={Icon}></Image> */}
+        <IconBox onClick={()=>setDropFilter(!dropFilter)}>
+          <img src={dropFilter? Minus :Icon }  alt="" />
         </IconBox>
       </FilterTitle>
-      <FilterMenu>
+      <FilterMenu style={{display: dropFilter ? 'block' :'none'}}>
         <ul>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
           <li>
             <div>
               <img></img>
@@ -31,6 +52,7 @@ export default function Filter () {
           </li>
         </ul>
       </FilterMenu>
+      
     </FilterList>
   </SearchFilter>
   )
@@ -100,12 +122,17 @@ img {
 `
 
 const FilterMenu =styled.div`
+border: solid red 1px;
     padding-bottom: 24px;
     ul
 {
   max-height: 315px;
     overflow-y: auto;
     li {
+      padding-top: 10px;
+      &:first-child{
+        padding : 0;
+      }
       div {
         display: flex;
     -webkit-box-align: start;
