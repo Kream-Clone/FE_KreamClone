@@ -157,7 +157,7 @@ const BannerRightBox = styled.div`
 `;
 const BannerInfo = styled.div`
   max-width: 300px;
-  color: #fff;
+  color: ${(props) => props.theme.color.white};
 `;
 const InfoSubtitle = styled.strong`
   font-size: 12px;
@@ -181,7 +181,7 @@ const InfoText = styled.span`
   line-height: 27px;
   border-radius: 6px;
   border: 1px solid hsla(0, 0%, 100%, 0.8);
-  color: #fff;
+  color: ${(props) => props.theme.color.white};
 `;
 
 const FooterContainer = styled.div`
@@ -208,7 +208,7 @@ const MenuBox = styled.div`
 const MenuTitle = styled.strong`
   font-size: 16px;
   font-weight: bold;
-  color: #222;
+  color: ${(props) => props.theme.color.black};
 `;
 const MenuList = styled.ul`
   padding-top: 16px;
@@ -256,7 +256,7 @@ const ServiceButtonBox = styled.div`
 `;
 const ServiceButton = styled.a`
   font-weight: 600;
-  color: #fff;
+  color: ${(props) => props.theme.color.white};
   background-color: #222;
   font-size: 12px;
   letter-spacing: -0.06px;

@@ -56,7 +56,7 @@ const HeaderContainer = styled.div`
   position: sticky;
   top: 0;
   left: 0;
-  background-color: white;
+  background-color: ${(props) => props.theme.color.white};
   z-index: 99;
 `;
 
@@ -101,7 +101,7 @@ const MainInner = styled.div`
 `;
 
 const MainLogo = styled.h1`
-  color: #222;
+  color: ${(props) => props.theme.color.black};
   box-sizing: border-box;
 `;
 const Logo = styled.div`
@@ -133,11 +133,11 @@ const MainUl = styled.ul`
 const MainList = styled.li`
   margin-right: 40px;
   font-size: 15px;
-  color: #222;
+  color: ${(props) => props.theme.color.black};
 `;
 
 const SearchButtonBox = styled.div`
-  color: #222;
+  color: ${(props) => props.theme.color.black};
 `;
 const SearchIcon = styled.div`
   width: 28px;

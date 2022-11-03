@@ -22,6 +22,21 @@ export const GlobalStyle = createGlobalStyle`
     ul, ol, li{
         list-style:none;
     }
+    input{
+        outline: 0;
+        border: 0;
+        resize: none;
+        border-radius: 0;
+        -webkit-appearance: none;
+        background-color: transparent;
+    }
+    h2{
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
     :focus {
         outline: none;
         border: none;

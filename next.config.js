@@ -13,6 +13,7 @@ module.exports = withBundleAnalyzer({
   },
 
   webpack(conf) {
+
     conf.module.rules.push({
       test: /\.svg$/,
       use: [
@@ -40,3 +41,5 @@ module.exports = withBundleAnalyzer({
     return conf;
   },
 });
+const withImages = require("next-images");
+module.exports = withImages();
