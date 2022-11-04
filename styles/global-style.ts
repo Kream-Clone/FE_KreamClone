@@ -4,6 +4,7 @@ import { media } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
     ${reset}
+
     *{
         margin:0;
         padding:0;
@@ -36,6 +37,7 @@ export const GlobalStyle = createGlobalStyle`
         margin-inline-start: 0px;
         margin-inline-end: 0px;
         font-weight: bold;
+
     }
     :focus {
         outline: none;
