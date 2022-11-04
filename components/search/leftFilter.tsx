@@ -52,7 +52,240 @@ export default function Filter () {
           </li>
         </ul>
       </FilterMenu>
-      
+    </FilterList>
+    <FilterList>
+      <FilterTitle>
+        <TitleBox>
+          <span>브랜드</span>
+          <span style={{display: dropFilter ? 'none' :'block'}} >모든 브랜드</span>
+        </TitleBox>
+        <IconBox onClick={()=>setDropFilter(!dropFilter)}>
+          <img src={dropFilter? Minus :Icon }  alt="" />
+        </IconBox>
+      </FilterTitle>
+      <FilterMenu style={{display: dropFilter ? 'block' :'none'}}>
+        <ul>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+        </ul>
+      </FilterMenu>
+    </FilterList>
+    <FilterList>
+      <FilterTitle>
+        <TitleBox>
+          <span>성별</span>
+          <span style={{display: dropFilter ? 'none' :'block'}} >모든 성별</span>
+        </TitleBox>
+        <IconBox onClick={()=>setDropFilter(!dropFilter)}>
+          <img src={dropFilter? Minus :Icon }  alt="" />
+        </IconBox>
+      </FilterTitle>
+      <FilterMenu style={{display: dropFilter ? 'block' :'none'}}>
+        <ul>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+        </ul>
+      </FilterMenu>
+    </FilterList>
+    <FilterList>
+      <FilterTitle>
+        <TitleBox>
+          <span>컬렉션</span>
+          <span style={{display: dropFilter ? 'none' :'block'}} >모든 컬렉션</span>
+        </TitleBox>
+        <IconBox onClick={()=>setDropFilter(!dropFilter)}>
+          <img src={dropFilter? Minus :Icon }  alt="" />
+        </IconBox>
+      </FilterTitle>
+      <FilterMenu style={{display: dropFilter ? 'block' :'none'}}>
+        <ul>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+        </ul>
+      </FilterMenu>
+    </FilterList>
+    <FilterList>
+      <FilterTitle>
+        <TitleBox>
+          <span>신발 사이즈</span>
+          <span style={{display: dropFilter ? 'none' :'block'}} >모든 사이즈</span>
+        </TitleBox>
+        <IconBox onClick={()=>setDropFilter(!dropFilter)}>
+          <img src={dropFilter? Minus :Icon }  alt="" />
+        </IconBox>
+      </FilterTitle>
+      <FilterMenu style={{display: dropFilter ? 'block' :'none'}}>
+        <ul>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+        </ul>
+      </FilterMenu>
+    </FilterList>
+    <FilterList>
+      <FilterTitle>
+        <TitleBox>
+          <span>의류 사이즈</span>
+          <span style={{display: dropFilter ? 'none' :'block'}} >모든 사이즈</span>
+        </TitleBox>
+        <IconBox onClick={()=>setDropFilter(!dropFilter)}>
+          <img src={dropFilter? Minus :Icon }  alt="" />
+        </IconBox>
+      </FilterTitle>
+      <FilterMenu style={{display: dropFilter ? 'block' :'none'}}>
+        <ul>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+        </ul>
+      </FilterMenu>
+    </FilterList>
+    <FilterList>
+      <FilterTitle>
+        <TitleBox>
+          <span>가격</span>
+          <span style={{display: dropFilter ? 'none' :'block'}} >모든 가격</span>
+        </TitleBox>
+        <IconBox onClick={()=>setDropFilter(!dropFilter)}>
+          <img src={dropFilter? Minus :Icon }  alt="" />
+        </IconBox>
+      </FilterTitle>
+      <FilterMenu style={{display: dropFilter ? 'block' :'none'}}>
+        <ul>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <img></img>
+              <span>신발</span>
+            </div>
+          </li>
+        </ul>
+      </FilterMenu>
     </FilterList>
   </SearchFilter>
   )
@@ -115,14 +348,12 @@ display: flex;
 const IconBox =styled.div`
 height: 20px;
 img {
-  border: solid red 1px;
   width: 20px;
     height: 20px;
 }
 `
 
 const FilterMenu =styled.div`
-border: solid red 1px;
     padding-bottom: 24px;
     ul
 {
@@ -140,7 +371,6 @@ border: solid red 1px;
     font-size: 14px;
     letter-spacing: -.21px;
     img {
-      border:solid red 1px;
       margin-right: 8px;
     flex-shrink: 0;
     width: 16px;

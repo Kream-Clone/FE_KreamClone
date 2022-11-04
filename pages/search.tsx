@@ -14,8 +14,7 @@ export default function Search () {
       <Top />
       <SearchTrend/>
       <BannerSide>
-         <SimpleSlider />
-
+        <SimpleSlider />
       </BannerSide>
       <Content>
         <Filter/>
@@ -30,7 +29,6 @@ export default function Search () {
 }
 
 const Layer = styled.div`
-   border: solid red 1px;
 overflow: hidden;
 `
 const BannerSide = styled.div`

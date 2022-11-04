@@ -9,14 +9,7 @@ export const GlobalStyle = createGlobalStyle`
         margin:0;
         padding:0;
         box-sizing:border-box;
-    }
-    p{
-        display: block;
-        margin-block-start: 1em;
-        margin-block-end: 1em;
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
-    }
+    }a
     li{
         cursor:pointer;
     }
@@ -43,9 +36,7 @@ export const GlobalStyle = createGlobalStyle`
         outline: none;
         border: none;
     }
-    ::-webkit-scrollbar {
-        display: none;
-    }
+
     html{
         font-size: 11px;
         -webkit-text-size-adjust: none;

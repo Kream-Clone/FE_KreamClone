@@ -112,6 +112,7 @@ const TopFigure =styled.div`
 
 `
 const DetailSize =styled.div`
+height: 56px;
   padding-top: 19px;
     padding-bottom: 12px;
     border-bottom: 1px solid #ebebeb;

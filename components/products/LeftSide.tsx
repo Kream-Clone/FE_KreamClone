@@ -1,11 +1,39 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 export default function LeftSide () {
 
+  const [scrollY, setScrollY] = useState(0);
+  const [scrollActive, setScrollActive] = useState(false);
+
+  const scrollFixed = () => {
+    if (scrollY > 1380) {
+      setScrollY(window.pageYOffset);
+      setScrollActive(true);
+    } else {
+      setScrollY(window.pageYOffset);
+      setScrollActive(false);
+    }
+  };
+
+  useEffect(() => {
+    const scrollListener = () => {
+      window.addEventListener('scroll', scrollFixed);
+    };
+    scrollListener();
+    return () => {
+      window.removeEventListener('scroll', scrollFixed);
+    };
+  });
+
+  console.log(scrollY)
+  console.log(scrollActive)
   return (
- 
+  
       <Fixed>
-        <Box>
+        <Box 
+        style={{position: scrollActive ? 'absolute' : 'fixed', top :scrollActive ?  null : '130px' ,bottom:scrollActive ? '0' : null }}
+        >
           <Slider></Slider>
           <Alert>
             <AlertWrap>
@@ -26,14 +54,14 @@ export default function LeftSide () {
 }
 
 const Fixed =styled.div`
+position: relative;
+  border: solid red 8px;
   float: left;
   width: 50%;
-    padding-right: 3.334%;
+  padding-right: 3.334%;
 `
 const Box =styled.div`
-    width: 515px;
-    position: fixed;
-    top: 130px;
+  border: solid red 2px;
 `
 const Slider =styled.div`
 border: solid red 1px;
