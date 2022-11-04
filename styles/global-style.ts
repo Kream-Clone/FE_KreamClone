@@ -4,6 +4,36 @@ import { media } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
     ${reset}
+    * {
+    box-sizing: border-box;
+    }
+    body{
+        font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    }
+    div,span {
+        margin:0;
+        padding:0;
+    }
+    button {
+        padding: 0;
+    border: 0;
+    outline: none;
+    }
+    li, ol, ul {
+    list-style: none;
+}
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+    input, button {
+        background-color: transparent;
+        border: none;
+        outline: none;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-family:'Maven Pro', sans-serif;
+    }
     :focus {
         outline: none;
         border: none;

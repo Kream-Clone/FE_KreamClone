@@ -1,3 +1,4 @@
+
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
@@ -36,3 +37,6 @@ module.exports = withBundleAnalyzer({
     return conf;
   },
 });
+
+const withImages = require('next-images');
+module.exports = withImages();
