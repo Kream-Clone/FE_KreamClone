@@ -1,7 +1,14 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Header() {
+  const [menuBar, setMenuBar] = useState(false);
+
+  const onClickMenu = () => {
+    setMenuBar(!menuBar);
+    console.log("click");
+  };
   return (
     <>
       <HeaderContainer>
@@ -40,10 +47,18 @@ export default function Header() {
             </MainNav>
             <SearchButtonBox>
               <SearchIcon />
+              <HambergerIcon onClick={onClickMenu} />
             </SearchButtonBox>
           </MainTitleContainer>
         </HeaderMain>
       </HeaderContainer>
+      {menuBar && (
+        <SideContainer>
+          <HambergerCloseBox>
+            <HambergerCloseButton></HambergerCloseButton>
+          </HambergerCloseBox>
+        </SideContainer>
+      )}
     </>
   );
 }
@@ -68,6 +83,10 @@ const HeaderTop = styled.ul`
   justify-content: flex-end;
   padding: 8px 40px;
   border-bottom: 2px solid #eee;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const TopInner = styled.li`
@@ -129,6 +148,9 @@ const MainNav = styled.nav`
 const MainUl = styled.ul`
   display: flex;
   align-items: center;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 const MainList = styled.li`
   margin-right: 40px;
@@ -138,6 +160,50 @@ const MainList = styled.li`
 
 const SearchButtonBox = styled.div`
   color: ${(props) => props.theme.color.black};
+  @media (max-width: 768px) {
+    display: flex;
+  }
+`;
+const SideContainer = styled.div`
+  display: none;
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    width: 75%;
+    height: 100vh;
+    z-index: 120;
+    background-color: white;
+    display: flex;
+    justify-content: flex-end;
+  }
+`;
+const HambergerCloseBox = styled.div`
+  display: block;
+  position: fixed;
+  z-index: 1010;
+  top: 0;
+  bottom: 0;
+  width: 79.4%;
+  background-color: #fff;
+  padding-top: 60px;
+  overflow-y: auto;
+`;
+const HambergerCloseButton = styled.div`
+  @media (max-width: 768px) {
+    width: 28px;
+    height: 28px;
+    background: url(https://cdn.icon-icons.com/icons2/1674/PNG/512/close_111152.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 18px 11px;
+    line-height: 0;
+  }
 `;
 const SearchIcon = styled.div`
   width: 28px;
@@ -147,4 +213,19 @@ const SearchIcon = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
+  @media (max-width: 768px) {
+    cursor: auto;
+    margin-right: 20px;
+  }
+`;
+const HambergerIcon = styled.div`
+  @media (max-width: 768px) {
+    width: 28px;
+    height: 28px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAV1BMVEX///8AAAAwMDA6Ojr7+/sODg7h4eHp6enR0dGbm5u7u7tYWFjm5ubj4+NQUFDy8vJXV1dLS0t2dnYgICBiYmJFRUVqamoJCQkSEhKVlZX19fVvb2+dnZ3Mq88xAAABp0lEQVR4nO3dW3LiMBAFUE8GQwhgyAsmIftf50DIAtTioyP5nBXcLmNZTVVLwwAAAAAAAPDLbdfTQzum9TZY3/74pzXHfaTA5Sk7b4VxWV7gqsUCLyWuiit8zs5a6bm0wKfspNWeCivcZAettikrcJGd8w6LogqX2THvULacPmbHvMOjZ/it//ew/7V0Bt/D/vc0wyo7aqXyfemw+5cdtsK4Ky/w0h++ZOcNewn1h8O1x9+8jq143YR7fAAAAAAAAAAAAAAAgBqLVlRVt/t4e//bive3j9BI0MXnOXvIJ+z8GSmwzUHZwKkR2+yslcpnn6bsqJWm0gL7n5I9ZAet5tSIH20upDdOjZjLM+z/PXRqxC9WfGpE93uaGexLG11OA73FDPrDof8e/yb775diVdUBAAAAAAAAAAAAAADEbNeHhu4hPYTvIe3+LtnlmJ23wikwGNT/nc7d38vd/5Rs95PO/U+rtzkie+PUiLk8w/7fw/7X0hl8D/vf0wyrU3bWKmP5vrTN3mIMnRqxP2bnDTuH+sPrL/VremjH9BX4hQIAAAAAAOT4D3cEP4KpEEG9AAAAAElFTkSuQmCC);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: auto;
+  }
 `;
