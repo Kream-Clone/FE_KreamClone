@@ -8,8 +8,13 @@ module.exports = withBundleAnalyzer({
   env: {
     BASE_URL: process.env.BASE_URL,
   },
+  compiler: {
+    // Enables the styled-components SWC transform
+    styledComponents: true
+  },
 
   webpack(conf) {
+
     conf.module.rules.push({
       test: /\.svg$/,
       use: [
@@ -39,4 +44,5 @@ module.exports = withBundleAnalyzer({
 });
 
 const withImages = require('next-images');
+
 module.exports = withImages();

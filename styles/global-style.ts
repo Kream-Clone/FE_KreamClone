@@ -4,35 +4,40 @@ import { media } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
     ${reset}
-    * {
-    box-sizing: border-box;
-    }
-    body{
-        font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    }
-    div,span {
+
+    *{
         margin:0;
         padding:0;
+        box-sizing:border-box;
     }
-    button {
-        padding: 0;
-    border: 0;
-    outline: none;
+    p{
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
     }
-    li, ol, ul {
-    list-style: none;
-}
-    a {
-        color: inherit;
-        text-decoration: none;
+    li{
+        cursor:pointer;
     }
-    input, button {
+    ul, ol, li{
+        list-style:none;
+    }
+    input{
+        outline: 0;
+        border: 0;
+        resize: none;
+        border-radius: 0;
+        -webkit-appearance: none;
         background-color: transparent;
-        border: none;
-        outline: none;
     }
-    h1, h2, h3, h4, h5, h6{
-        font-family:'Maven Pro', sans-serif;
+    h2{
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+
     }
     :focus {
         outline: none;
