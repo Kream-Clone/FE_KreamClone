@@ -47,7 +47,9 @@ export default function products () {
               <ProductInfo/>
               <DeliveryInfo/>
               <BannerWrap>
-                <Banner>배너넣어야댐</Banner>
+                <Banner>
+                  <img src="https://kream-phinf.pstatic.net/MjAyMjEwMjBfMjA5/MDAxNjY2MjU0Mjg1ODIz.LKarZwdDkvAwrNhfCDbZpoUkQGMtMxA9Tjw74siMzIgg.MhtRTf8nzthOBfwROA_rgyXM22gghqZD-TXpG2RGf6og.JPEG/a_18fddeaeffa04fb6963fb6e50041055c.jpg" alt="" />
+                </Banner>
               </BannerWrap>
               <Detail/>
               {scrollActive && <Floating />}
@@ -77,6 +79,7 @@ display:flex;
 `
 
 const Column = styled.div`
+border-left: 1px solid #ebebeb;
 position: relative;
     padding-left: 3.334%;
     width: 50%;
@@ -91,4 +94,12 @@ const BannerWrap = styled.div`
 const Banner = styled.div`
   border:solid red 1px;
   height: 80px;
+  display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+  background-color: rgb(0, 0, 0);
+  img{
+    height: 100%;
+    vertical-align: top;
+  }
 `

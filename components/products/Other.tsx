@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import simpleDownArrow from '../../Icon/simpleDownArrow.png'
 
 export default function Other () {
   return (
@@ -7,8 +8,8 @@ export default function Other () {
       <span>Stussy</span>
       <span>의 다른상품</span>
       <MoreBtn>
-        <BtnText></BtnText>
-        <img></img>
+        <BtnText>더 보기</BtnText>
+        <img src={simpleDownArrow}></img>
       </MoreBtn>
     </h3>
     <OtherProduct>
@@ -71,7 +72,7 @@ const MoreBtn =styled.div`
     display: inline-flex;
     flex-shrink: 0;
     img {
-      border: solid red 1px;
+      transform: rotate(-90deg);
       width: 20px;
     height: 20px;
     }

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import bookmark from '../../Icon/bookmark.png'
 
 export default function Floating () {
   return (
@@ -14,7 +15,7 @@ export default function Floating () {
       </ProductArea>
       <BtnArea>
         <BookmarkBtn>
-          <BookmarkIcon></BookmarkIcon>
+          <BookmarkIcon src={bookmark}></BookmarkIcon>
           <span>555</span>
         </BookmarkBtn>
         <DivisionBtnBox>
@@ -138,7 +139,6 @@ const BookmarkBtn = styled.div`
     }
 `
 const BookmarkIcon =styled.img`
-border: solid red 1px;
   width: 20px;
     height: 20px;
 `

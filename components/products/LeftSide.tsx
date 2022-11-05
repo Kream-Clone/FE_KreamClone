@@ -1,15 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-
+import rightArrow from '../../Icon/rightArrow.png'
+import Carousel from './carousel';
 export default function LeftSide () {
 
   const [scrollY, setScrollY] = useState(0);
   const [scrollActive, setScrollActive] = useState(false);
 
-  const stageCanvasRef = useRef(null);
+  const containersRef = useRef(null);
+  const boxRef = useRef(null);
 
   const scrollFixed = () => {
-    if (scrollY > stageCanvasRef.current?.offsetHeight -600) {
+    if (scrollY > containersRef.current?.offsetHeight - boxRef.current?.offsetHeight ) {
       setScrollY(window.pageYOffset);
       setScrollActive(true);
     } else {
@@ -30,11 +32,15 @@ export default function LeftSide () {
 
   return (
   
-      <Fixed ref={stageCanvasRef}>
-        <Box 
+      <Fixed ref={containersRef}>
+        <Box ref={boxRef}
         style={{position: scrollActive ? 'absolute' : 'fixed', top :scrollActive ?  null : '130px' ,bottom:scrollActive ? '0' : null }}
         >
-          <Slider></Slider>
+          <SlideItem>
+            <Picture>
+              <img src="https://kream-phinf.pstatic.net/MjAyMjEwMzFfMTA0/MDAxNjY3MjA2Nzc3Mjk1.hixW_zJkAnQxBBNdIO33K79yI0O1LVzcnZg6EAXKt8Qg.1CPSYppKphdP8bJJ3pRaS0swJr9Z-ToLxla04YnW288g.PNG/a_2103286cbde846c6aaf4858b990a7a01.png?type=l" alt="" />
+            </Picture>
+          </SlideItem>
           <Alert>
             <AlertWrap>
               <AlertContent>
@@ -44,7 +50,7 @@ export default function LeftSide () {
                 </Title>
                 <Subtext>반드시 보유한 상품만 판매하세요.</Subtext>
               </AlertContent>
-              <Arrow></Arrow>
+              <Arrow src={rightArrow}></Arrow>
             </AlertWrap>
           </Alert>
         </Box>
@@ -61,12 +67,10 @@ position: relative;
 `
 const Box =styled.div`
   border: solid #40BA78 5px;
+  width: 380px;
+  height: 500px;
 `
-const Slider =styled.div`
-border: solid red 1px;
-width:515px;
-height: 515px;
-`
+
 const Alert =styled.div`
 padding-top: 20px;
 
@@ -120,11 +124,30 @@ float: left;
     color: #fff;
     background-color: #ff8824;
 `
-const Arrow =styled.div`
-border: solid red 3px;
+const Arrow =styled.img`
 line-height: 0;
     margin-left: auto;
     width: 25px;
     height: 21px;
     vertical-align: top;
+`
+const SlideItem =styled.div`
+  background-color: rgb(235, 240, 245);
+  position: relative;
+  overflow: hidden;
+    padding-top: 100%;
+    width: 100%;
+`
+const Picture =styled.div`
+  display: flex;
+  width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+
 `

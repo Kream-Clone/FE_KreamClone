@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import cir from '../../Icon/3x.svg'
 import box from '../../Icon/box.svg'
 import ov from '../../Icon/ov.svg'
+import simpleDownArrow from '../../Icon/simpleDownArrow.png'
 
 export default function Confirm () {
   const [shippingInfo,setShippingInfo] = useState(false)
@@ -19,7 +20,7 @@ export default function Confirm () {
           <Dropdown>
             <DropdownHead onClick={()=>setShippingInfo(!shippingInfo)}>
               <p>배송 기간 안내</p>
-              <img src="" alt="" />
+              <img src={simpleDownArrow} alt="" />
             </DropdownHead>
             <DropdownContent style={{display: shippingInfo ? 'block' : 'none' }}>
               <ContentBox>
@@ -57,7 +58,7 @@ export default function Confirm () {
           <Dropdown>
             <DropdownHead onClick={()=>setConfirmInfo(!confirmInfo)}>
               <p>검수 안내</p>
-              <img src="" alt="" />
+              <img src={simpleDownArrow} alt="" />
             </DropdownHead>
             <DropdownContent style={{display: confirmInfo ? 'block' : 'none' }}>
               <ContentBox>
@@ -91,7 +92,7 @@ export default function Confirm () {
           <Dropdown>
             <DropdownHead onClick={()=>setReturnInfo(!returnInfo)}>
               <p>구매 환불/취소/교환 안내</p>
-              <img src="" alt="" />
+              <img src={simpleDownArrow} alt="" />
             </DropdownHead>
             <DropdownContent style={{display: returnInfo ? 'block' : 'none' }}>
               <ContentBox>
@@ -181,7 +182,6 @@ const DropdownHead =styled.div`
       letter-spacing: -.15px;
     }
     img{
-      border: solid red 1px;
       margin-left: auto;
     flex-shrink: 0;
     width: 24px;
