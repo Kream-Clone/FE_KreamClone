@@ -53,7 +53,10 @@ export default function Footer() {
                 </MenuList>
               </MenuBox>
 
-              <MenuBox style={{ marginLeft: "80px" }}>
+              <MenuBox
+                className="right-menu-box"
+                style={{ marginLeft: "80px" }}
+              >
                 <MenuTitle>고객지원</MenuTitle>
                 <MenuList>
                   <MenuItem>공지사항</MenuItem>
@@ -69,7 +72,7 @@ export default function Footer() {
             <TermList>
               <TermItem>회사소개</TermItem>
               <TermItem>인재채용</TermItem>
-              <TermItem>제휴제안</TermItem>
+              <TermItem className="item3">제휴제안</TermItem>
               <TermItem>이용약관</TermItem>
               <TermItem className="privacy">개인정보처리방침</TermItem>
             </TermList>
@@ -132,6 +135,9 @@ const BannerBottom = styled.div`
     AppleSDGothicNeo-Regular, NanumBarunGothic, NanumGothic, 나눔고딕, Segoe UI,
     Helveica, Arial, Malgun Gothic, Dotum, sans-serif;
   cursor: pointer;
+  @media (max-width: 768px) {
+    display: block;
+  }
 `;
 const BannerLeftBox = styled.div`
   background-color: #565656;
@@ -187,6 +193,12 @@ const InfoText = styled.span`
 const FooterContainer = styled.div`
   box-sizing: border-box;
   padding: 50px 40px;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 24px;
+    margin-top: 200px;
+  }
 `;
 const FooterInner = styled.div``;
 const ServiceArea = styled.div`
@@ -198,12 +210,25 @@ const ServiceArea = styled.div`
   padding-bottom: 56px;
   flex-direction: row-reverse;
   border-bottom: 1px solid #ebebeb;
+  @media (max-width: 768px) {
+    display: block;
+    padding-bottom: 50px;
+  }
 `;
 const FooterMenu = styled.div`
   display: flex;
+  @media (max-width: 768px) {
+    margin-top: 50px;
+    .right-menu-box {
+      margin-left: 20px;
+    }
+  }
 `;
 const MenuBox = styled.div`
   width: 160px;
+  @media (max-width: 768px) {
+    width: 50%;
+  }
 `;
 const MenuTitle = styled.strong`
   font-size: 16px;
@@ -213,6 +238,9 @@ const MenuTitle = styled.strong`
 const MenuList = styled.ul`
   padding-top: 16px;
   display: block;
+  @media (max-width: 768px) {
+    padding-top: 6px;
+  }
 `;
 const MenuItem = styled.li`
   display: list-item;
@@ -227,6 +255,10 @@ const MenuItem = styled.li`
 const CustomService = styled.div`
   display: flex;
   flex-direction: column;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 const ServiceTitle = styled.strong`
   display: inline-flex;
@@ -274,12 +306,21 @@ const CopoprationArea = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 30px;
+  @media (max-width: 768px) {
+    position: relative;
+  }
 `;
 const TermList = styled.ul`
   padding-bottom: 16px;
   display: inline-flex;
   .privacy {
     font-weight: 700;
+  }
+  @media (max-width: 768px) {
+    padding-bottom: 50px;
+    .item3 {
+      display: none;
+    }
   }
 `;
 const TermItem = styled.li`
@@ -288,12 +329,19 @@ const TermItem = styled.li`
   font-size: 14px;
   letter-spacing: -0.21px;
   color: #000;
+  @media (max-width: 768px) {
+    margin-right: 12px;
+  }
 `;
 
 const FooterSns = styled.div`
   position: absolute;
   top: 0;
   right: 0;
+  @media (max-width: 768px) {
+    position: relative;
+    display: flex;
+  }
 `;
 const SnsBox = styled.div`
   font-size: 0;
@@ -301,6 +349,10 @@ const SnsBox = styled.div`
   display: flex;
   .sns {
     margin-left: 20px;
+    @media (max-width: 768px) {
+      margin-left: 0;
+      margin-right: 20px;
+    }
   }
 `;
 const Instar = styled.div`
@@ -350,6 +402,11 @@ const BusinessTitle = styled.dt`
   span {
     margin-right: 17px;
   }
+  @media (max-width: 768px) {
+    display: none;
+    position: relative;
+    margin-top: 30px;
+  }
 `;
 
 const NoticeGuarantee = styled.div`
@@ -364,6 +421,9 @@ const NoticeGuarantee = styled.div`
     margin-top: 4px;
     color: rgba(34, 34, 34, 0.5);
   }
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const NoticeArea = styled.div`
@@ -371,12 +431,19 @@ const NoticeArea = styled.div`
   -webkit-box-align: end;
   align-items: flex-end;
   line-height: 18px;
-
   .copyright {
     margin-left: auto;
     flex-shrink: 0;
     font-size: 12px;
     color: rgba(34, 34, 34, 0.3);
+  }
+  @media (max-width: 768px) {
+    display: block;
+    padding-top: 20px;
+    .copyright {
+      padding-top: 50px;
+      text-align: center;
+    }
   }
 `;
 const Notice = styled.p`
@@ -384,4 +451,7 @@ const Notice = styled.p`
   font-size: 12px;
   letter-spacing: -0.06px;
   color: rgba(34, 34, 34, 0.4);
+  @media (max-width: 768px) {
+    margin: 0;
+  }
 `;

@@ -10,13 +10,6 @@ export const GlobalStyle = createGlobalStyle`
         padding:0;
         box-sizing:border-box;
     }
-    p{
-        display: block;
-        margin-block-start: 1em;
-        margin-block-end: 1em;
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
-    }
     li{
         cursor:pointer;
     }
@@ -37,15 +30,20 @@ export const GlobalStyle = createGlobalStyle`
         margin-inline-start: 0px;
         margin-inline-end: 0px;
         font-weight: bold;
+        @media (max-width: 768px) {
+            margin-block-start: 0;
+            margin-block-end: 0;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+        }
 
     }
     :focus {
         outline: none;
         border: none;
     }
-    ::-webkit-scrollbar {
-        display: none;
-    }
+    
     html{
         font-size: 11px;
         -webkit-text-size-adjust: none;

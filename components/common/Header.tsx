@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -41,23 +41,54 @@ export default function Header() {
             <MainNav>
               <MainUl>
                 <MainList>STYLE</MainList>
-                <MainList>SHOP</MainList>
+                <Link href="/products">
+                  <MainList>SHOP</MainList>
+                </Link>
                 <MainList>ABOUT</MainList>
               </MainUl>
             </MainNav>
             <SearchButtonBox>
-              <SearchIcon />
+              <Link href="/search">
+                <SearchIcon />
+              </Link>
               <HambergerIcon onClick={onClickMenu} />
             </SearchButtonBox>
           </MainTitleContainer>
         </HeaderMain>
       </HeaderContainer>
       {menuBar && (
-        <SideContainer>
-          <HambergerCloseBox>
-            <HambergerCloseButton></HambergerCloseButton>
-          </HambergerCloseBox>
-        </SideContainer>
+        <NavigationWrap>
+          <Navigation>
+            <HambergerCloseButton onClick={onClickMenu} />
+            <NavigationInner>
+              <NavList>
+                <NavItem>
+                  <NavLink>STYLE</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink>SHOP</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink>자주 묻는 질문</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink>공지사항</NavLink>
+                </NavItem>
+                <NavItem>
+                  <Link href="/login">
+                    <NavLink>로그인</NavLink>
+                  </Link>
+                </NavItem>
+              </NavList>
+              <NavDownload>
+                <DownloadTxt>KREAM 앱 설치 후 사용해 보세요!</DownloadTxt>
+                <DownloadButtonBox>
+                  <DownloadButton>앱 다운로드</DownloadButton>
+                </DownloadButtonBox>
+              </NavDownload>
+            </NavigationInner>
+          </Navigation>
+        </NavigationWrap>
       )}
     </>
   );
@@ -83,17 +114,14 @@ const HeaderTop = styled.ul`
   justify-content: flex-end;
   padding: 8px 40px;
   border-bottom: 2px solid #eee;
-
   @media (max-width: 768px) {
     display: none;
   }
 `;
-
 const TopInner = styled.li`
   list-style: none;
   margin-left: 24px;
 `;
-
 const TopList = styled.a`
   display: flex;
   align-items: center;
@@ -104,14 +132,19 @@ const TopList = styled.a`
 `;
 
 const HeaderMain = styled.div`
-  width: 100%;
+  display: flex;
+  padding: 0 40px;
   height: 68px;
   min-width: 320px;
-  display: flex;
-  justify-content: space-between;
+  -webkit-box-align: center;
   align-items: center;
-  box-sizing: border-box;
-  padding: 0 40px;
+  @media (max-width: 768px) {
+    height: 60px;
+    padding: 0 24px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 `;
 
 const MainInner = styled.div`
@@ -120,8 +153,12 @@ const MainInner = styled.div`
 `;
 
 const MainLogo = styled.h1`
-  color: ${(props) => props.theme.color.black};
   box-sizing: border-box;
+  @media (max-width: 768px) {
+    box-sizing: border-box;
+    width: 100px;
+    height: 20px;
+  }
 `;
 const Logo = styled.div`
   display: flex;
@@ -133,6 +170,15 @@ const Logo = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 20px;
+    box-sizing: border-box;
+    background: url(https://pds.saramin.co.kr/company/logo/202109/02/qyse95_u387-xpqfsv_logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 `;
 
 const MainTitleContainer = styled.div`
@@ -164,31 +210,92 @@ const SearchButtonBox = styled.div`
     display: flex;
   }
 `;
-const SideContainer = styled.div`
-  display: none;
-  @media (max-width: 768px) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    width: 75%;
-    height: 100vh;
-    z-index: 120;
-    background-color: white;
-    display: flex;
-    justify-content: flex-end;
+
+const SlideInAnimation = keyframes`
+  from{
+    right: -100%;
+  }
+  to{
+      right: 0%;
   }
 `;
-const HambergerCloseBox = styled.div`
+const SlideOutAnimation = keyframes`
+  from{
+    right: 0%;
+  }
+  to{
+      right: -100%;
+  }
+`;
+const NavigationWrap = styled.div`
+  @media (max-width: 768px) {
+    display: block;
+    position: fixed;
+    z-index: 1010;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(34, 34, 34, 0.5);
+  }
+`;
+const Navigation = styled.div`
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+    position: fixed;
+    z-index: 1010;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 79.4%;
+    background-color: #fff;
+    padding-top: 60px;
+    animation: ${SlideInAnimation} 0.3s linear backwards;
+  }
+`;
+const NavigationInner = styled.div`
+  position: relative;
+  padding-bottom: 55px;
+  min-height: 100%;
+`;
+const NavList = styled.ul``;
+const NavItem = styled.li`
+  border-bottom: 1px solid #ebebeb;
+`;
+const NavLink = styled.a`
   display: block;
-  position: fixed;
-  z-index: 1010;
-  top: 0;
-  bottom: 0;
-  width: 79.4%;
+  padding: 19px 20px 18px;
+  height: 100%;
+  font-size: 15px;
+  letter-spacing: -0.15px;
+  font-weight: 700;
+`;
+const NavDownload = styled.div`
+  margin-top: 53px;
+  margin-left: 20px;
+`;
+const DownloadTxt = styled.span`
+  font-size: 12px;
+  color: rgba(34, 34, 34, 0.8);
+`;
+const DownloadButtonBox = styled.div`
+  margin-top: 12px;
+`;
+const DownloadButton = styled.a`
+  padding: 0 11px;
+  height: 40px;
+  line-height: 38px;
+  border-radius: 12px;
+  font-size: 14px;
+  letter-spacing: -0.14px;
+  border: 1px solid #d3d3d3;
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: middle;
+  text-align: center;
+  color: rgba(34, 34, 34, 0.8);
   background-color: #fff;
-  padding-top: 60px;
-  overflow-y: auto;
 `;
 const HambergerCloseButton = styled.div`
   @media (max-width: 768px) {
@@ -201,7 +308,7 @@ const HambergerCloseButton = styled.div`
     position: absolute;
     top: 0;
     right: 0;
-    padding: 18px 11px;
+    margin: 18px 11px;
     line-height: 0;
   }
 `;

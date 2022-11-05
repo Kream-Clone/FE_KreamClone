@@ -84,7 +84,7 @@ export default function Main() {
                 <BannerItem className="banner1">
                   <ItemInner>
                     <ImgBox>
-                      <Img1 />
+                      <BannerImage className="banner-image1" />
                     </ImgBox>
                   </ItemInner>
                 </BannerItem>
@@ -92,14 +92,15 @@ export default function Main() {
                 <BannerItem className="banner2">
                   <ItemInner>
                     <ImgBox>
-                      <Img2 />
+                      <BannerImage className="banner-image2" />
                     </ImgBox>
                   </ItemInner>
                 </BannerItem>
+
                 <BannerItem className="banner3">
                   <ItemInner>
                     <ImgBox>
-                      <Img3 />
+                      <BannerImage className="banner-image3" />
                     </ImgBox>
                   </ItemInner>
                 </BannerItem>
@@ -107,7 +108,7 @@ export default function Main() {
                 <BannerItem className="banner4">
                   <ItemInner>
                     <ImgBox>
-                      <Img4 />
+                      <BannerImage className="banner-image4" />
                     </ImgBox>
                   </ItemInner>
                 </BannerItem>
@@ -115,7 +116,7 @@ export default function Main() {
                 <BannerItem className="banner5">
                   <ItemInner>
                     <ImgBox>
-                      <Img5 />
+                      <BannerImage className="banner-image5" />
                     </ImgBox>
                   </ItemInner>
                 </BannerItem>
@@ -123,7 +124,7 @@ export default function Main() {
                 <BannerItem className="banner6">
                   <ItemInner>
                     <ImgBox>
-                      <Img6 />
+                      <BannerImage className="banner-image6" />
                     </ImgBox>
                   </ItemInner>
                 </BannerItem>
@@ -131,7 +132,7 @@ export default function Main() {
                 <BannerItem className="banner7">
                   <ItemInner>
                     <ImgBox>
-                      <Img7 />
+                      <BannerImage className="banner-image7" />
                     </ImgBox>
                   </ItemInner>
                 </BannerItem>
@@ -139,7 +140,7 @@ export default function Main() {
                 <BannerItem className="banner8">
                   <ItemInner>
                     <ImgBox>
-                      <Img8 />
+                      <BannerImage className="banner-image8" />
                     </ImgBox>
                   </ItemInner>
                 </BannerItem>
@@ -147,7 +148,7 @@ export default function Main() {
                 <BannerItem className="banner9">
                   <ItemInner>
                     <ImgBox>
-                      <Img9 />
+                      <BannerImage className="banner-image9" />
                     </ImgBox>
                   </ItemInner>
                 </BannerItem>
@@ -159,75 +160,75 @@ export default function Main() {
             <ShorcutItemsWrap>
               <ShorcutItems>
                 <ShorcutItem>
-                  <ShorcutItenImgWrap>
+                  <ShorcutItemImgWrap>
                     <ShortcutItemImgBg className="top-image1" />
-                    <ShortcutItemTitle>셀럽픽</ShortcutItemTitle>
-                  </ShorcutItenImgWrap>
+                  </ShorcutItemImgWrap>
+                  <ShortcutItemTitle>셀럽픽</ShortcutItemTitle>
                 </ShorcutItem>
 
                 <ShorcutItem>
-                  <ShorcutItenImgWrap>
+                  <ShorcutItemImgWrap>
                     <ShortcutItemImgBg className="top-image2" />
-                    <ShortcutItemTitle>남성 추천</ShortcutItemTitle>
-                  </ShorcutItenImgWrap>
+                  </ShorcutItemImgWrap>
+                  <ShortcutItemTitle>남성 추천</ShortcutItemTitle>
                 </ShorcutItem>
 
                 <ShorcutItem>
-                  <ShorcutItenImgWrap>
+                  <ShorcutItemImgWrap>
                     <ShortcutItemImgBg className="top-image3" />
-                    <ShortcutItemTitle>여성 추천</ShortcutItemTitle>
-                  </ShorcutItenImgWrap>
+                  </ShorcutItemImgWrap>
+                  <ShortcutItemTitle>여성 추천</ShortcutItemTitle>
                 </ShorcutItem>
 
                 <ShorcutItem>
-                  <ShorcutItenImgWrap>
+                  <ShorcutItemImgWrap>
                     <ShortcutItemImgBg className="top-image4" />
-                    <ShortcutItemTitle>럭키드로우</ShortcutItemTitle>
-                  </ShorcutItenImgWrap>
+                  </ShorcutItemImgWrap>
+                  <ShortcutItemTitle>럭키드로우</ShortcutItemTitle>
                 </ShorcutItem>
 
                 <ShorcutItem>
-                  <ShorcutItenImgWrap>
+                  <ShorcutItemImgWrap>
                     <ShortcutItemImgBg className="top-image5" />
-                    <ShortcutItemTitle>브랜드관 오픈</ShortcutItemTitle>
-                  </ShorcutItenImgWrap>
+                  </ShorcutItemImgWrap>
+                  <ShortcutItemTitle>브랜드관 오픈</ShortcutItemTitle>
                 </ShorcutItem>
               </ShorcutItems>
 
               <ShorcutItems className="bottom-items">
                 <ShorcutItem>
-                  <ShorcutItenImgWrap>
+                  <ShorcutItemImgWrap>
                     <ShortcutItemImgBg className="bottom-image1" />
-                    <ShortcutItemTitle>정가 아래</ShortcutItemTitle>
-                  </ShorcutItenImgWrap>
+                  </ShorcutItemImgWrap>
+                  <ShortcutItemTitle>정가 아래</ShortcutItemTitle>
                 </ShorcutItem>
 
                 <ShorcutItem>
-                  <ShorcutItenImgWrap>
+                  <ShorcutItemImgWrap>
                     <ShortcutItemImgBg className="bottom-image2" />
-                    <ShortcutItemTitle>인기 럭셔리</ShortcutItemTitle>
-                  </ShorcutItenImgWrap>
+                  </ShorcutItemImgWrap>
+                  <ShortcutItemTitle>인기 럭셔리</ShortcutItemTitle>
                 </ShorcutItem>
 
                 <ShorcutItem>
-                  <ShorcutItenImgWrap>
+                  <ShorcutItemImgWrap>
                     <ShortcutItemImgBg className="bottom-image3" />
-                    <ShortcutItemTitle>집꾸미기</ShortcutItemTitle>
-                  </ShorcutItenImgWrap>
+                  </ShorcutItemImgWrap>
+                  <ShortcutItemTitle>집꾸미기</ShortcutItemTitle>
                 </ShorcutItem>
 
                 <ShorcutItem>
-                  <ShorcutItenImgWrap>
+                  <ShorcutItemImgWrap>
                     <ShortcutItemImgBg className="bottom-image4" />
-                    <ShortcutItemTitle>데일리코디</ShortcutItemTitle>
-                  </ShorcutItenImgWrap>
+                  </ShorcutItemImgWrap>
+                  <ShortcutItemTitle>데일리코디</ShortcutItemTitle>
                 </ShorcutItem>
 
                 <ShorcutItem>
-                  <ShorcutItenImgWrap>
+                  <ShorcutItemImgWrap>
                     <ShortcutItemImgBg className="bottom-image5" />
-                    <ShortcutItemTitle>수수료 할인</ShortcutItemTitle>
-                  </ShorcutItenImgWrap>
+                  </ShorcutItemImgWrap>
+                  <ShortcutItemTitle>수수료 할인</ShortcutItemTitle>
                 </ShorcutItem>
               </ShorcutItems>
             </ShorcutItemsWrap>
@@ -369,112 +370,112 @@ export default function Main() {
               <ShorcutItemsWrap style={{ marginTop: "20px" }}>
                 <ShorcutItems>
                   <ShorcutItem>
-                    <ShorcutItenImgWrap>
+                    <ShorcutItemImgWrap>
                       <ShortcutItemImgBg className="top-Brand-image1" />
-                      <ShortcutItemTitle>에르메스</ShortcutItemTitle>
-                    </ShorcutItenImgWrap>
+                    </ShorcutItemImgWrap>
+                    <ShortcutItemTitle>에르메스</ShortcutItemTitle>
                   </ShorcutItem>
 
                   <ShorcutItem>
-                    <ShorcutItenImgWrap>
+                    <ShorcutItemImgWrap>
                       <ShortcutItemImgBg className="top-Brand-image2" />
-                      <ShortcutItemTitle>아크네</ShortcutItemTitle>
-                    </ShorcutItenImgWrap>
+                    </ShorcutItemImgWrap>
+                    <ShortcutItemTitle>아크네</ShortcutItemTitle>
                   </ShorcutItem>
 
                   <ShorcutItem>
-                    <ShorcutItenImgWrap>
+                    <ShorcutItemImgWrap>
                       <ShortcutItemImgBg className="top-Brand-image3" />
-                      <ShortcutItemTitle>뮤지엄비지터</ShortcutItemTitle>
-                    </ShorcutItenImgWrap>
+                    </ShorcutItemImgWrap>
+                    <ShortcutItemTitle>뮤지엄비지터</ShortcutItemTitle>
                   </ShorcutItem>
 
                   <ShorcutItem>
-                    <ShorcutItenImgWrap>
+                    <ShorcutItemImgWrap>
                       <ShortcutItemImgBg className="top-Brand-image4" />
-                      <ShortcutItemTitle>우영미</ShortcutItemTitle>
-                    </ShorcutItenImgWrap>
+                    </ShorcutItemImgWrap>
+                    <ShortcutItemTitle>우영미</ShortcutItemTitle>
                   </ShorcutItem>
 
                   <ShorcutItem>
-                    <ShorcutItenImgWrap>
+                    <ShorcutItemImgWrap>
                       <ShortcutItemImgBg className="top-Brand-image5" />
-                      <ShortcutItemTitle>롤렉스</ShortcutItemTitle>
-                    </ShorcutItenImgWrap>
+                    </ShorcutItemImgWrap>
+                    <ShortcutItemTitle>롤렉스</ShortcutItemTitle>
                   </ShorcutItem>
                 </ShorcutItems>
 
                 <ShorcutItems style={{ marginTop: "16px" }}>
                   <ShorcutItem>
-                    <ShorcutItenImgWrap>
+                    <ShorcutItemImgWrap>
                       <ShortcutItemImgBg className="middle-Brand-image1" />
-                      <ShortcutItemTitle>애플</ShortcutItemTitle>
-                    </ShorcutItenImgWrap>
+                    </ShorcutItemImgWrap>
+                    <ShortcutItemTitle>애플</ShortcutItemTitle>
                   </ShorcutItem>
 
                   <ShorcutItem>
-                    <ShorcutItenImgWrap>
+                    <ShorcutItemImgWrap>
                       <ShortcutItemImgBg className="middle-Brand-image2" />
-                      <ShortcutItemTitle>샤넬</ShortcutItemTitle>
-                    </ShorcutItenImgWrap>
+                    </ShorcutItemImgWrap>
+                    <ShortcutItemTitle>샤넬</ShortcutItemTitle>
                   </ShorcutItem>
 
                   <ShorcutItem>
-                    <ShorcutItenImgWrap>
+                    <ShorcutItemImgWrap>
                       <ShortcutItemImgBg className="middle-Brand-image3" />
-                      <ShortcutItemTitle>몽클레르</ShortcutItemTitle>
-                    </ShorcutItenImgWrap>
+                    </ShorcutItemImgWrap>
+                    <ShortcutItemTitle>몽클레르</ShortcutItemTitle>
                   </ShorcutItem>
 
                   <ShorcutItem>
-                    <ShorcutItenImgWrap>
+                    <ShorcutItemImgWrap>
                       <ShortcutItemImgBg className="middle-Brand-image4" />
-                      <ShortcutItemTitle>루이비통</ShortcutItemTitle>
-                    </ShorcutItenImgWrap>
+                    </ShorcutItemImgWrap>
+                    <ShortcutItemTitle>루이비통</ShortcutItemTitle>
                   </ShorcutItem>
 
                   <ShorcutItem>
-                    <ShorcutItenImgWrap>
+                    <ShorcutItemImgWrap>
                       <ShortcutItemImgBg className="middle-Brand-image5" />
-                      <ShortcutItemTitle>아크테릭스</ShortcutItemTitle>
-                    </ShorcutItenImgWrap>
+                    </ShorcutItemImgWrap>
+                    <ShortcutItemTitle>아크테릭스</ShortcutItemTitle>
                   </ShorcutItem>
                 </ShorcutItems>
 
                 <ShorcutItems style={{ marginTop: "16px" }}>
                   <ShorcutItem>
-                    <ShorcutItenImgWrap>
+                    <ShorcutItemImgWrap>
                       <ShortcutItemImgBg className="bottom-Brand-image1" />
-                      <ShortcutItemTitle>프라다</ShortcutItemTitle>
-                    </ShorcutItenImgWrap>
+                    </ShorcutItemImgWrap>
+                    <ShortcutItemTitle>프라다</ShortcutItemTitle>
                   </ShorcutItem>
 
                   <ShorcutItem>
-                    <ShorcutItenImgWrap>
+                    <ShorcutItemImgWrap>
                       <ShortcutItemImgBg className="bottom-Brand-image2" />
-                      <ShortcutItemTitle>디올</ShortcutItemTitle>
-                    </ShorcutItenImgWrap>
+                    </ShorcutItemImgWrap>
+                    <ShortcutItemTitle>디올</ShortcutItemTitle>
                   </ShorcutItem>
 
                   <ShorcutItem>
-                    <ShorcutItenImgWrap>
+                    <ShorcutItemImgWrap>
                       <ShortcutItemImgBg className="bottom-Brand-image3" />
-                      <ShortcutItemTitle>막스마라</ShortcutItemTitle>
-                    </ShorcutItenImgWrap>
+                    </ShorcutItemImgWrap>
+                    <ShortcutItemTitle>막스마라</ShortcutItemTitle>
                   </ShorcutItem>
 
                   <ShorcutItem>
-                    <ShorcutItenImgWrap>
+                    <ShorcutItemImgWrap>
                       <ShortcutItemImgBg className="bottom-Brand-image4" />
-                      <ShortcutItemTitle>렉토</ShortcutItemTitle>
-                    </ShorcutItenImgWrap>
+                    </ShorcutItemImgWrap>
+                    <ShortcutItemTitle>렉토</ShortcutItemTitle>
                   </ShorcutItem>
 
                   <ShorcutItem>
-                    <ShorcutItenImgWrap>
+                    <ShorcutItemImgWrap>
                       <ShortcutItemImgBg className="bottom-Brand-image5" />
-                      <ShortcutItemTitle>셀린느</ShortcutItemTitle>
-                    </ShorcutItenImgWrap>
+                    </ShorcutItemImgWrap>
+                    <ShortcutItemTitle>셀린느</ShortcutItemTitle>
                   </ShorcutItem>
                 </ShorcutItems>
               </ShorcutItemsWrap>
@@ -622,6 +623,13 @@ export default function Main() {
 const MainContainer = styled.div`
   overflow: hidden;
   position: relative;
+  p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
 `;
 const Home = styled.div``;
 const HomeCardList = styled.div``;
@@ -732,18 +740,9 @@ const ItemInner = styled.div`
   margin: 0 auto;
   width: 45vw;
   max-height: 480px;
-  .banner2 {
-    background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMzFfNDYg/MDAxNjY3MTg1NDYyNjc0.2Vb7XJhsAeUUSbree2v99RMAcAG99BHoRpqtUMSxpKAg.VNOsl5UYTwzEu20AKVgdiwDuXhZYFli6dCg9St7GrbYg.JPEG/a_9a770fc5d86143a49dd2cb8b1fab7b72.jpg?type=m_2560);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    height: 100%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    max-height: 480px;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
   }
 `;
 const ImgBox = styled.div`
@@ -753,94 +752,58 @@ const ImgBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  .banner-image1 {
+    background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMjhfOTAg/MDAxNjY2OTQ5MzI0OTcy.wtWZFAk2xWROo5L_Xt1_Fr58mY1W06MN8SomUFl-Kswg.0ul0vU6euaKiBko08qW0E4I6cFoXwx3RqEWEuW62Zcog.JPEG/a_b74657bb57f94aa5b785e429ea5cebee.jpg?type=m_2560);
+    width: 525px;
+    height: 476px;
+  }
+  .banner-image2 {
+    background-image: url(https://kream-phinf.pstatic.net/MjAyMjExMDFfMjI0/MDAxNjY3MjY0Mzc0MDMy.WXDrmlo-tMIYJaqQJm48-E8mcwqba2v3xhMdVtk4sRsg.8atih317ZzFHEVpJddD2uyasz8hiul2rKqXTcdJqFTMg.JPEG/a_6363b3edb9a141d3853d82e155f76459.jpg?type=m_2560);
+    width: 1245px;
+    height: 468px;
+  }
+  .banner-image3 {
+    background-image: url(https://kream-phinf.pstatic.net/MjAyMjExMDJfMTA4/MDAxNjY3MzY1Nzg4NDQz.1hr0TrSk-8lHorkQF7e02qEFHqI-KByBApfTVQ8assMg.935C5IAH4kcq53S4wUlpaqq_XmtUW_VHon2AeyovJBog.JPEG/a_09631650c44e4b969c0d7bf64959212b.jpg?type=m_2560);
+    width: 516px;
+    height: 468px;
+  }
+  .banner-image4 {
+    background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMjhfMjQ4/MDAxNjY2OTQ1ODIwMTkz.6yLYh2vFuhkR_8XOzOAjDbj3aud5CyT8iU3ZKKKaWq0g.U68sTnIEIcWJi728e3K6gcJXTP5J6hUiPi6owYvN-FIg.JPEG/a_d18fed90b3d04341a2644b17b7aa5ca9.jpg?type=m_2560);
+    width: 1245px;
+    height: 468px;
+  }
+  .banner-image5 {
+    background-image: url(https://kream-phinf.pstatic.net/MjAyMjExMDJfNzcg/MDAxNjY3MzgyOTA3NTAx._NDVAkY2CMavQ0r666bkLHCC32_IR8a8a2PKrszGpBEg.wNfGYXxP-qXVa8D2KDuJ9OSxEkNZRAb1ByBdhV6URI0g.JPEG/a_0abf3746a7724018a1b8339e0df368bb.jpg?type=m_2560);
+    width: 1245px;
+    height: 468px;
+  }
+  .banner-image6 {
+    background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMzFfOTUg/MDAxNjY3MTkzNDQ0NTM0.2fy-0Mqi2vCqkz_cCvf8kqKvkGa-at23kKHWoOGnMdQg.oINcko8fYga2Z53sVk-7-ZOCccwJkqO_9MolWImKAe0g.JPEG/a_96f7ada9a4594f89a5ba9723568c71d3.jpg?type=m_2560);
+    width: 1245px;
+    height: 468px;
+  }
+  .banner-image7 {
+    background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMjhfNzYg/MDAxNjY2OTQ0Mjk4MjIw.ODVD0x0mPcZ6X8OuoEsL98De4Bi57mEAIlUj233sDRsg.ygr9B_zRlyx0gonK7gRaD7bqy1zZYfKvqScVx3_5v8og.JPEG/a_5906d8451d9d444ca0f7725773af0a55.jpg?type=m_2560);
+    width: 1245px;
+    height: 468px;
+  }
+  .banner-image8 {
+    background-image: url(https://kream-phinf.pstatic.net/MjAyMjExMDNfMTE3/MDAxNjY3NDUxMDA5OTc5.SIePb0hDDqeQROOoL5JzG_EojOdUfi_KygDzwBBkAzcg.iYkrMQVGJUNSDJqVRt6A3lQcF-Y866emxEvgB9rhF6sg.JPEG/a_203b4fae84b7476c9e060740986dede1.jpg?type=m_2560);
+    width: 1245px;
+    height: 468px;
+  }
+  .banner-image9 {
+    background-image: url(https://kream-phinf.pstatic.net/MjAyMjExMDFfMjQ0/MDAxNjY3MjMyODE4NDEy.pAoiYiKpIHRxpTwPgtKdCCII71uGCo36VYZBFZDtmDQg.GImqj2ybdUCev-zQaGB5R7vO8CtIH7BJiAMkhSNC1-kg.JPEG/a_6e757c0e09f446ee983fa77fa1124a38.jpg?type=m_2560);
+    width: 1245px;
+    height: 468px;
+  }
 `;
-const Img1 = styled.div`
-  background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMjhfOTAg/MDAxNjY2OTQ5MzI0OTcy.wtWZFAk2xWROo5L_Xt1_Fr58mY1W06MN8SomUFl-Kswg.0ul0vU6euaKiBko08qW0E4I6cFoXwx3RqEWEuW62Zcog.JPEG/a_b74657bb57f94aa5b785e429ea5cebee.jpg?type=m_2560);
+const BannerImage = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
   top: 0;
-  width: 525px;
-  height: 476px;
-`;
-const Img2 = styled.div`
-  background-image: url(https://kream-phinf.pstatic.net/MjAyMjExMDFfMjI0/MDAxNjY3MjY0Mzc0MDMy.WXDrmlo-tMIYJaqQJm48-E8mcwqba2v3xhMdVtk4sRsg.8atih317ZzFHEVpJddD2uyasz8hiul2rKqXTcdJqFTMg.JPEG/a_6363b3edb9a141d3853d82e155f76459.jpg?type=m_2560);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  width: 1245px;
-  height: 468px;
-`;
-const Img3 = styled.div`
-  background-image: url(https://kream-phinf.pstatic.net/MjAyMjExMDJfMTA4/MDAxNjY3MzY1Nzg4NDQz.1hr0TrSk-8lHorkQF7e02qEFHqI-KByBApfTVQ8assMg.935C5IAH4kcq53S4wUlpaqq_XmtUW_VHon2AeyovJBog.JPEG/a_09631650c44e4b969c0d7bf64959212b.jpg?type=m_2560);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  width: 516px;
-  height: 468px;
-`;
-const Img4 = styled.div`
-  background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMjhfMjQ4/MDAxNjY2OTQ1ODIwMTkz.6yLYh2vFuhkR_8XOzOAjDbj3aud5CyT8iU3ZKKKaWq0g.U68sTnIEIcWJi728e3K6gcJXTP5J6hUiPi6owYvN-FIg.JPEG/a_d18fed90b3d04341a2644b17b7aa5ca9.jpg?type=m_2560);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  width: 1245px;
-  height: 468px;
-`;
-const Img5 = styled.div`
-  background-image: url(https://kream-phinf.pstatic.net/MjAyMjExMDJfNzcg/MDAxNjY3MzgyOTA3NTAx._NDVAkY2CMavQ0r666bkLHCC32_IR8a8a2PKrszGpBEg.wNfGYXxP-qXVa8D2KDuJ9OSxEkNZRAb1ByBdhV6URI0g.JPEG/a_0abf3746a7724018a1b8339e0df368bb.jpg?type=m_2560);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  width: 1245px;
-  height: 468px;
-`;
-const Img6 = styled.div`
-  background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMzFfOTUg/MDAxNjY3MTkzNDQ0NTM0.2fy-0Mqi2vCqkz_cCvf8kqKvkGa-at23kKHWoOGnMdQg.oINcko8fYga2Z53sVk-7-ZOCccwJkqO_9MolWImKAe0g.JPEG/a_96f7ada9a4594f89a5ba9723568c71d3.jpg?type=m_2560);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  width: 1245px;
-  height: 468px;
-`;
-const Img7 = styled.div`
-  background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMjhfNzYg/MDAxNjY2OTQ0Mjk4MjIw.ODVD0x0mPcZ6X8OuoEsL98De4Bi57mEAIlUj233sDRsg.ygr9B_zRlyx0gonK7gRaD7bqy1zZYfKvqScVx3_5v8og.JPEG/a_5906d8451d9d444ca0f7725773af0a55.jpg?type=m_2560);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  width: 1245px;
-  height: 468px;
-`;
-const Img8 = styled.div`
-  background-image: url(https://kream-phinf.pstatic.net/MjAyMjExMDNfMTE3/MDAxNjY3NDUxMDA5OTc5.SIePb0hDDqeQROOoL5JzG_EojOdUfi_KygDzwBBkAzcg.iYkrMQVGJUNSDJqVRt6A3lQcF-Y866emxEvgB9rhF6sg.JPEG/a_203b4fae84b7476c9e060740986dede1.jpg?type=m_2560);
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  width: 1245px;
-  height: 468px;
-`;
-const Img9 = styled.div`
-  background-image: url(https://kream-phinf.pstatic.net/MjAyMjExMDFfMjQ0/MDAxNjY3MjMyODE4NDEy.pAoiYiKpIHRxpTwPgtKdCCII71uGCo36VYZBFZDtmDQg.GImqj2ybdUCev-zQaGB5R7vO8CtIH7BJiAMkhSNC1-kg.JPEG/a_6e757c0e09f446ee983fa77fa1124a38.jpg?type=m_2560);
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  width: 1245px;
-  height: 468px;
 `;
 
 const ShortcutCollection = styled.div`
@@ -855,22 +818,51 @@ const ShorcutItemsWrap = styled.div`
   .bottom-items {
     margin-top: 16px;
   }
+  @media (max-width: 768px) {
+    padding: 0 17px;
+    margin: 0 auto;
+    max-width: 1280px;
+    height: 100%;
+    .bottom-items {
+      margin-top: 16px;
+    }
+  }
 `;
-const ShorcutItems = styled.div``;
+const ShorcutItems = styled.div`
+  @media (max-width: 768px) {
+    display: flex;
+  }
+`;
 const ShorcutItem = styled.div`
   text-align: center;
   width: calc(20% - 15px);
   display: inline-block;
   margin: 0 7.5px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: calc(20% - 8.5px);
+    margin: 0 4px;
+    cursor: pointer;
+  }
 `;
-const ShorcutItenImgWrap = styled.div`
+const ShorcutItemImgWrap = styled.div`
   border-radius: 10px;
   height: 100px;
   position: relative;
   padding: 1px;
+  @media (max-width: 768px) {
+    padding-top: 100%;
+    position: relative;
+    padding: 1px;
+    border-radius: 50%;
+    text-align: center;
+  }
   .top-image1 {
     background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMDdfMjcy/MDAxNjY1MTM4ODMwODk2.7wp-TrHdYWm2C57ME9NIN585TCb53kLH_70dV64dAJEg.LIzM9u80hVrrz14DG59EpYWUk5ouDEE91GvWeHmj52Ig.JPEG/a_137b762cd09d4a75a76b104191da2491.jpg?type=m_webp);
+    @media (max-width: 768px) {
+      background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMDdfMTEw/MDAxNjY1MTM4ODI4Mjk5.lA_FVYmGxWklb_iQp8yfD_6AuZrDcr2q-ZrSEmIJYywg.FmlrOf228yYKdtkn7m-zw0FgqfRD3iiu1sZWaX-YRSgg.JPEG/a_308c7d17e0c64fa9b79e2c3990c7f7a1.jpg_webp);
+    }
   }
   .top-image2 {
     background-image: url(https://kream-phinf.pstatic.net/MjAyMjA3MDZfNDUg/MDAxNjU3MDU5MTcxNTQ2.E3TjdMy69xlhTPTwk0Q1ni8NjwEolZQ7iD_rpq4wJq0g.LcX4kS2TB6wWEJq_v4fgIgjNsTqAkkbhPzQnwbtikKEg.JPEG/a_c6ad36c470b64f93a56afa9871f4cacc.jpg?type=m_webp);
@@ -879,25 +871,43 @@ const ShorcutItenImgWrap = styled.div`
     background-image: url(https://kream-phinf.pstatic.net/MjAyMjA3MDZfMTY1/MDAxNjU3MDU5MjA0NDUy.CV4j0rUpBLasZDDpvGIJk_RJzlFA4e882J2Noq47CNYg.lHuMCov6Xcza7e9fRkWzFM8n5nQ5TC5732vc3V3YNcwg.JPEG/a_ce2e703a1c8c4d7ab506b0b054317d95.jpg?type=m_webp);
   }
   .top-image4 {
-    background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMjhfMTI5/MDAxNjY2OTQzMDA2NTUw.oriZLguO4KbRDNZ5VfoOO3WseEeSkSDF6oNoGVurzHAg.guI3b74gpAoWgONs0hgsQCWv2O4WP-S-YHKNhHp-zU0g.JPEG/a_3e6f86f7693f48c993865da2e3c813e5.jpg?type=m_webp);
+    background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMjhfMTg5/MDAxNjY2OTQzMDAyNDYw.HIYCXF-8SLv9omXcslvwV22a7uSPxvS-nvRIi2AO4jAg.4beIQWsM-23ixj425_CkrwnBBp_T_3rzek5rxS2ytNQg.JPEG/a_c3e5df294e654660b770ae9c7d7998e1.jpg_webp);
   }
   .top-image5 {
     background-image: url(https://kream-phinf.pstatic.net/MjAyMjExMDFfNTUg/MDAxNjY3MjY1NjQ3OTg3.Cf3bKUU1VjhPxa9GhkfU96tYsaPwZk3lIhbDsAprzAgg.cgP4OAzlUGkLC-NoCqauI9etixG_5U1M_AdWgJdnUaYg.JPEG/a_2586915f42914b92916022f2c8671ef8.jpg?type=m_webp);
+    @media (max-width: 768px) {
+      background-image: url(https://kream-phinf.pstatic.net/MjAyMjExMDFfOTIg/MDAxNjY3MjY1NjQ1MzIy.oj7KlRdPhMMFd_fAWKK5rMjyUcHRdWZCtibMv7z2MHUg.6XMunR9WCJX16eIeTWx4G54y0I8e_Mi_MHKI5kwy2I4g.JPEG/a_decd182fa1984fe38bf28fd61c558b96.jpg_webp);
+    }
   }
   .bottom-image1 {
     background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMzFfMjE5/MDAxNjY3MTk5MzIxOTIx.JYK4FQeVfSbXwWNADzMcsep13cB3T0TZUchl9Z19NNIg.rru_5HOxbK1L3YlEaJolO04YHiPt2mOOkTtm29mt47sg.JPEG/a_4fa0e8b531e34a0083a036929b22a55f.jpg?type=m_webp);
+    @media (max-width: 768px) {
+      background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMzFfMTkx/MDAxNjY3MTk5MzE5MzUz.vRd8IEFf6RARocayLicrheyQ9WjSfS9cEgMIZt-tzbYg.lvx5vjtPJzoM6pBAm-Sq1Q36ETZaHdFTheCBBzk_gSkg.JPEG/a_86fce933810c45b3b486048a184875bf.jpg_webp);
+    }
   }
   .bottom-image2 {
     background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMzFfNDAg/MDAxNjY3MTk5MzQ2NTQz.URILBpL_P105lOhSphaLc8qmx8sn2-eRahuxWnF22hkg.X54uCFwrIUJaXBeDgLTYS8odbBagoBQgav3uWB1RPbog.JPEG/a_1a3c2e04c86f4656958f6b96f41278ae.jpg?type=m_webp);
+    @media (max-width: 768px) {
+      background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMzFfMzIg/MDAxNjY3MTk5MzQ0MDI1.geMXs_v1JVgQIVr5NG4HwTDka__1wvSmnqBgBLDSsqsg.iTJhZ05yu-XMG8yaWWEMuSlZiF2Edf24HB5z8H7nQ9Mg.JPEG/a_6eb12ad9564c42d68251c3319123e1ca.jpg_webp);
+    }
   }
   .bottom-image3 {
     background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMzFfNzMg/MDAxNjY3MTk5MzYzNjAx.WKggNpcqeyOaxaYLdhvJQ75bpOO9vQ7kQJrabDqWx_0g.ZoVbGIhXeM6kNs20GAAbrmumsTnqA2dj1bwHhR85n3cg.JPEG/a_a0423979ac6141c589ec9f8fdfdca9d2.jpg?type=m_webp);
+    @media (max-width: 768px) {
+      background-image: url(https://kream-phinf.pstatic.net/MjAyMjExMDRfMTM1/MDAxNjY3NTI2MjMxNjkx.kjFOV48UlOPbiGqo0YKiLbF9zYRxP7zyRtL6cSlzwkog.jEX7n_UI9vf2tqGF-gn8rodGzKrb_0wAoHiTNdZH45sg.JPEG/a_34657e55add54725a6a790e2a44aafab.jpg_webp);
+    }
   }
   .bottom-image4 {
     background-image: url(https://kream-phinf.pstatic.net/MjAyMjA5MjlfMjM3/MDAxNjY0NDE2NTY0OTgy.2P8enbFDZnz3jkrPCDfO0MAet54Yb1gwbfTIUHV6Ea0g.fKfNXJV-gJ1cyetsHEl-8pckNXZMAqxaqYPBb-ycCU0g.JPEG/a_b5933ca2914a426d8d36ef59f4a7bc80.jpg?type=m_webp);
+    @media (max-width: 768px) {
+      background-image: url(https://kream-phinf.pstatic.net/MjAyMjA5MjlfOTgg/MDAxNjY0NDE2NTYxMjA0.i-GRNQu3-DCSXUGnP91u8t11BB2T1osZZArgFOaneyUg.4jtVVRn1wNKFPJ1mZZhMtJN4gclltLUzTdYT6FxAoMwg.JPEG/a_add7ea5309054b6f98133af3f105ac28.jpg_webp);
+    }
   }
   .bottom-image5 {
     background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMzBfNTIg/MDAxNjY3MTMzNDY3NDkw.JPIhJOinJN69uSI2kZ5TamWD6FvmtYdGx_TtJFi1KmIg.BUewZOy0LsgPZcrc8RBu5FbyNqjfDAFRUwFmR2ooEIgg.JPEG/a_41ba623f09d94beaba6ff061cac42e46.jpg?type=m_webp);
+    @media (max-width: 768px) {
+      background-image: url(https://kream-phinf.pstatic.net/MjAyMjEwMzBfMTYy/MDAxNjY3MTMzNDY1NDUw.d6wKFVYPXlFdgCbWGuAMp92aGzvALSy-veYJYZ3E-xkg.9DIQUfK0bWD0hSQ6D_KRVIPRkhZ0x4KHExUzBnzvqKgg.JPEG/a_95ddabf7e84a49ec8f2032c00cc5574d.jpg_webp);
+    }
   }
   .top-Brand-image1 {
     background-image: url(https://kream-phinf.pstatic.net/MjAyMjA4MjJfMTU2/MDAxNjYxMTMyMjc3ODYy.o_bZ8NwB1fDxBycvBadiwSjJ3sJrAfNcgzHXZO3SCskg.U9-45gdxEevSSwnM8xAHqDBdIsBhbR4TCwK3xrBmMaIg.JPEG/a_41ee4f97c403419784fe145cbfe9e950.jpg?type=m_webp);
@@ -957,12 +967,31 @@ const ShortcutItemImgBg = styled.picture`
   display: inline-block;
   margin: 0 7.5px;
   cursor: pointer;
+  @media (max-width: 768px) {
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    border-radius: 50%;
+    margin: 0px;
+  }
 `;
 const ShortcutItemTitle = styled.p`
   font-size: 15px;
   letter-spacing: -0.15px;
   color: #333;
   margin-top: 8px;
+  @media (max-width: 768px) {
+    width: 100%;
+    font-size: 12px;
+    display: -webkit-box;
+    letter-spacing: -0.7px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+    margin-top: 6px;
+    word-wrap: break-word;
+  }
 `;
 
 const HomeProducts = styled.div`
@@ -985,6 +1014,7 @@ const ProductSubTitle = styled.div`
   font-size: 14px;
   letter-spacing: -0.21px;
   color: rgba(34, 34, 34, 0.5);
+  margin-top: 5px;
 `;
 const ProductListWrap = styled.div`
   max-width: 1280px;

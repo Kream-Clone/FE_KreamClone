@@ -1,13 +1,7 @@
-import { useRouter } from "next/dist/client/router";
 import { useState } from "react";
 import styled from "styled-components";
 
 export default function Join() {
-  const router = useRouter();
-  const [checked, setChecked] = useState(false);
-  const handleChange = (ev) => {
-    setChecked(!checked);
-  };
   return (
     <>
       <JoinContainer>
@@ -82,12 +76,21 @@ const JoinContainer = styled.div`
   margin: 0 auto;
   padding: 0 40px;
   max-width: 1280px;
+  @media (max-width: 768px) {
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 0 24px;
+  }
 `;
 
 const JoinArea = styled.div`
   margin: 0 auto;
   padding: 60px 0 160px;
   width: 400px;
+  @media (max-width: 768px) {
+    padding: 23px 0 40px;
+    width: 100%;
+  }
 `;
 const JoinTitle = styled.h2`
   padding-bottom: 42px;
@@ -95,6 +98,13 @@ const JoinTitle = styled.h2`
   font-size: 32px;
   letter-spacing: -0.48px;
   color: #000;
+  @media (max-width: 768px) {
+    padding-bottom: 28px;
+    text-align: left;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.12px;
+  }
 `;
 
 const JoinInputBox = styled.div`
@@ -106,6 +116,10 @@ const JoinInputBox = styled.div`
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   font-weight: bold;
+  @media (max-width: 768px) {
+    position: relative;
+    padding: 10px 0 14px;
+  }
 `;
 const InputTitle = styled.h3`
   font-size: 13px;
