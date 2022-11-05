@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import rightArrow from '../../Icon/rightArrow.png'
-import Carousel from './carousel';
 export default function LeftSide () {
 
   const [scrollY, setScrollY] = useState(0);

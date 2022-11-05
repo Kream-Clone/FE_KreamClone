@@ -34,12 +34,16 @@ export default function Header() {
             <MainNav>
               <MainUl>
                 <MainList>STYLE</MainList>
+                <Link href="/shop">
                 <MainList>SHOP</MainList>
+                </Link>
                 <MainList>ABOUT</MainList>
               </MainUl>
             </MainNav>
             <SearchButtonBox>
+              <Link href="/shop">
               <SearchIcon />
+              </Link>
             </SearchButtonBox>
           </MainTitleContainer>
         </HeaderMain>
@@ -129,6 +133,7 @@ const MainNav = styled.nav`
 const MainUl = styled.ul`
   display: flex;
   align-items: center;
+  cursor:pointer;
 `;
 const MainList = styled.li`
   margin-right: 40px;
