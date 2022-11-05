@@ -2,13 +2,40 @@
 import Confirm from 'components/products/Confirm';
 import DeliveryInfo from 'components/products/DeliveryInfo';
 import Detail from 'components/products/Detail';
+import Floating from 'components/products/Floating';
 import LeftSide from 'components/products/LeftSide';
 import Other from 'components/products/Other';
 import ProductInfo from 'components/products/ProductInfo';
 import Purchase from 'components/products/Purchase';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 export default function products () {
+
+
+  const [scrollY, setScrollY] = useState(0);
+  const [scrollActive, setScrollActive] = useState(false);
+
+  const scrollFixed = () => {
+    if (scrollY > 380) {
+      setScrollY(window.pageYOffset);
+      setScrollActive(true);
+    } else {
+      setScrollY(window.pageYOffset);
+      setScrollActive(false);
+    }
+  };
+
+  useEffect(() => {
+    const scrollListener = () => {
+      window.addEventListener('scroll', scrollFixed);
+    };
+    scrollListener();
+    return () => {
+      window.removeEventListener('scroll', scrollFixed);
+    };
+  });
+
   return (
   <Layer>
     <Content>
@@ -23,6 +50,7 @@ export default function products () {
                 <Banner>배너넣어야댐</Banner>
               </BannerWrap>
               <Detail/>
+              {scrollActive && <Floating />}
               <Confirm/>
             </ColumnBox>
           </Column>
@@ -35,7 +63,6 @@ export default function products () {
 }
 
 const Layer = styled.div`
-border: solid red 1px;
 `
 const Content = styled.div`
    border : solid red 2px;
@@ -64,7 +91,4 @@ const BannerWrap = styled.div`
 const Banner = styled.div`
   border:solid red 1px;
   height: 80px;
-`
-const Test =styled.div`
-  border: solid green 2px;
 `

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 export default function LeftSide () {
@@ -6,8 +6,10 @@ export default function LeftSide () {
   const [scrollY, setScrollY] = useState(0);
   const [scrollActive, setScrollActive] = useState(false);
 
+  const stageCanvasRef = useRef(null);
+
   const scrollFixed = () => {
-    if (scrollY > 1380) {
+    if (scrollY > stageCanvasRef.current?.offsetHeight -600) {
       setScrollY(window.pageYOffset);
       setScrollActive(true);
     } else {
@@ -26,11 +28,9 @@ export default function LeftSide () {
     };
   });
 
-  console.log(scrollY)
-  console.log(scrollActive)
   return (
   
-      <Fixed>
+      <Fixed ref={stageCanvasRef}>
         <Box 
         style={{position: scrollActive ? 'absolute' : 'fixed', top :scrollActive ?  null : '130px' ,bottom:scrollActive ? '0' : null }}
         >
@@ -55,13 +55,12 @@ export default function LeftSide () {
 
 const Fixed =styled.div`
 position: relative;
-  border: solid red 8px;
   float: left;
   width: 50%;
   padding-right: 3.334%;
 `
 const Box =styled.div`
-  border: solid red 2px;
+  border: solid #40BA78 5px;
 `
 const Slider =styled.div`
 border: solid red 1px;
