@@ -75,7 +75,6 @@ return (
 }
 
 const SearchOption =styled.div`
-border : solid red 3px;
 display: flex;
 justify-content:space-between;
 align-items: center;
@@ -122,7 +121,6 @@ display: flex;
     letter-spacing: -.21px;
     font-weight: 600;
     img {
-      border: solid red 1px;
       margin-left: 2px;
       display: inline-flex;
     width: 24px;
@@ -163,7 +161,6 @@ const Desc =styled.div`
   }
 `
 const Check =styled.img`
-border: solid red 1px;
   position: absolute;
     top: 50%;
     right: 12px;

@@ -55,7 +55,6 @@ export default function Detail () {
   )
 }
 const DetailWrap =styled.div`
-  
 `
 const ProductSalePrice =styled.div`
   position: relative;

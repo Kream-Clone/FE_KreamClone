@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import downArrow from '../../Icon/downArrow_icon.png'
+import bookmark from '../../Icon/bookmark.png'
 
 export default function Purchase () {
   return (
@@ -24,7 +26,7 @@ export default function Purchase () {
         <Size>
           <SizeBtn>
             <span>모든 사이즈</span>
-            <img src="" alt="" />
+            <img src={downArrow} alt="" />
           </SizeBtn>
         </Size>
       </DetailSize>
@@ -70,7 +72,7 @@ export default function Purchase () {
         </SellBtn>
       </BtnBox>
       <BtnWish>
-          <img src="" alt="" />
+          <img src={bookmark} alt="" />
           <WishTitle>관심상품</WishTitle>
           <WishNum>242</WishNum>
       </BtnWish>
@@ -112,6 +114,7 @@ const TopFigure =styled.div`
 
 `
 const DetailSize =styled.div`
+height: 56px;
   padding-top: 19px;
     padding-bottom: 12px;
     border-bottom: 1px solid #ebebeb;
@@ -142,10 +145,10 @@ const SizeBtn = styled.div`
     margin-right: 5px;
     }
     img {
-      border:solid red 1px;
       vertical-align: top;
       width: 24px;
-    height: 24px;
+      height: 24px;
+      padding: 2px;
     }
 `
 const DetailPrice =styled.div`
@@ -333,7 +336,6 @@ const BtnWish =styled.div`
     color: #333;
     margin-top: 12px;
     img {
-      border: solid red 1px;
       width: 20px;
     height: 20px;
     }
