@@ -1,83 +1,108 @@
 import styled from 'styled-components';
 import downArrow from '../../Icon/downArrow_icon.png'
 import bookmark from '../../Icon/bookmark.png'
+import { useRef, useState } from 'react';
+import SizeSelectModal from './SizeSelectModal';
 
 export default function Purchase () {
+
+  const modalRef =  useRef<HTMLDivElement>(null);
+
+  const [allSizeModalShow, setAllSizeModalShow] =useState(false)
+
+  const modalOutSideClick = (e:any) => {
+    if(modalRef.current === e.target) {
+      setAllSizeModalShow(false)
+      document.body.style.overflow = "unset"
+  }  }
+
+  const closeModal = () => {
+    setAllSizeModalShow(false)
+    document.body.style.overflow = "unset"
+  }
+
   return (
+    <>
     <Top>
-    <TopTitle>
-      <TitleName>
-      Undermycar 
-      </TitleName>
-      <TitleInfo>
-      Undermycar Operation Chromite Kerberos Oversized Varsity Jacket Ox Blood - 22FW 
-      </TitleInfo>
-      <p>
-      언더마이카 오퍼레이션 크로마이트 켈베로스 오버사이즈 바시티 자켓 옥스 블러드 - 22FW
-      </p>
-    </TopTitle>
-    <TopFigure>
-      <DetailSize>
-        <SizeTitle>
-          <span>
-            사이즈
-          </span>
-        </SizeTitle>
-        <Size>
-          <SizeBtn>
-            <span>모든 사이즈</span>
-            <img src={downArrow} alt="" />
-          </SizeBtn>
-        </Size>
-      </DetailSize>
-      <DetailPrice>
-        <PriceTitle>
-          <span>최근 거래가</span>
-        </PriceTitle>
-        <Price>
-          <Amount>
-            <span>900,000</span>
-            <span>원</span>
-          </Amount>
-          <Increase>
-            <div></div>
-            <p>50,000원 (+6.7%)</p>
-          </Increase>
-        </Price>
-      </DetailPrice>
-    </TopFigure>
-    <BtnWrap>
-      <BtnBox>
-        <BuyBtn>
-          <p></p>
-          <strong>구매</strong>
-          <div>
+      <TopTitle>
+        <TitleName>
+        Undermycar 
+        </TitleName>
+        <TitleInfo>
+        Undermycar Operation Chromite Kerberos Oversized Varsity Jacket Ox Blood - 22FW 
+        </TitleInfo>
+        <p>
+        언더마이카 오퍼레이션 크로마이트 켈베로스 오버사이즈 바시티 자켓 옥스 블러드 - 22FW
+        </p>
+      </TopTitle>
+      <TopFigure>
+        <DetailSize>
+          <SizeTitle>
             <span>
-              <em>840,000</em>
-              <em>원</em>
+              사이즈
             </span>
-            <span>즉시 구매가</span>
-          </div>
-        </BuyBtn>
-        <SellBtn>
-          <p></p>
-            <strong>판매</strong>
+          </SizeTitle>
+          <Size>
+            <SizeBtn onClick={()=>{
+              setAllSizeModalShow(true);
+              document.body.style.overflow = "hidden";}}>
+              <span>모든 사이즈</span>
+              <img src={downArrow} alt="" />
+            </SizeBtn>
+          </Size>
+        </DetailSize>
+        <DetailPrice>
+          <PriceTitle>
+            <span>최근 거래가</span>
+          </PriceTitle>
+          <Price>
+            <Amount>
+              <span>900,000</span>
+              <span>원</span>
+            </Amount>
+            <Increase>
+              <div></div>
+              <p>50,000원 (+6.7%)</p>
+            </Increase>
+          </Price>
+        </DetailPrice>
+      </TopFigure>
+      <BtnWrap>
+        <BtnBox>
+          <BuyBtn>
+            <p></p>
+            <strong>구매</strong>
             <div>
               <span>
                 <em>840,000</em>
                 <em>원</em>
               </span>
-              <span>즉시 판매가</span>
+              <span>즉시 구매가</span>
             </div>
-        </SellBtn>
-      </BtnBox>
-      <BtnWish>
-          <img src={bookmark} alt="" />
-          <WishTitle>관심상품</WishTitle>
-          <WishNum>242</WishNum>
-      </BtnWish>
-    </BtnWrap>
-  </Top>
+          </BuyBtn>
+          <SellBtn>
+            <p></p>
+              <strong>판매</strong>
+              <div>
+                <span>
+                  <em>840,000</em>
+                  <em>원</em>
+                </span>
+                <span>즉시 판매가</span>
+              </div>
+          </SellBtn>
+        </BtnBox>
+        <BtnWish>
+            <img src={bookmark} alt="" />
+            <WishTitle>관심상품</WishTitle>
+            <WishNum>242</WishNum>
+        </BtnWish>
+      </BtnWrap>
+    </Top>
+    {allSizeModalShow &&  
+    <SizeSelectModal modalRef={modalRef} modalOutSideClick={modalOutSideClick} closeModal={closeModal} />
+    }
+    </>
   )
 }
 
@@ -110,6 +135,7 @@ const TitleInfo = styled.div`
     letter-spacing: -.09px;
     font-weight: 400;
 `
+
 const TopFigure =styled.div`
 
 `
