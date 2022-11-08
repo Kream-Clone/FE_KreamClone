@@ -74,11 +74,18 @@ const LoginArea = styled.div`
   margin: 0 auto;
   padding: 60px 0 160px;
   width: 400px;
+  @media (max-width: 768px) {
+    padding: 50px 0 87px;
+    width: 100%;
+  }
 `;
 const LoginTitle = styled.h2`
   padding-bottom: 50px;
   font-size: 0;
   text-align: center;
+  @media (max-width: 768px) {
+    padding-bottom: 58px;
+  }
 
   &::before {
     content: "";
