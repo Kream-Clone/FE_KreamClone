@@ -1,21 +1,19 @@
 
-import Item from 'components/search/Item';
-import Filter from 'components/search/leftFilter';
-import Sort from 'components/search/topSort';
+import Item from 'components/shop/Item';
+import Filter from 'components/shop/leftFilter';
+import Sort from 'components/shop/topSort';
 import styled from 'styled-components'
-import Top from '../components/search/top'
-import SearchTrend from '../components/search/trend';
-import SimpleSlider from 'components/search/slick';
+import Top from '../components/shop/top'
+import SearchTrend from '../components/shop/trend';
+import SimpleSlider from 'components/shop/slick';
 
-export default function Search () {
+export default function Shop () {
   return (
     <Layer>
-      
       <Top />
       <SearchTrend/>
       <BannerSide>
-         <SimpleSlider />
-
+        <SimpleSlider />
       </BannerSide>
       <Content>
         <Filter/>
@@ -30,7 +28,6 @@ export default function Search () {
 }
 
 const Layer = styled.div`
-   border: solid red 1px;
 overflow: hidden;
 `
 const BannerSide = styled.div`

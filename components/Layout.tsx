@@ -11,8 +11,21 @@ export default function Layout({ children }: any) {
   };
   const [windowSize, setWindowSize] = useState(getSize);
 
+  const handleResize = () => {
+    setWindowSize({
+      width: window.innerWidth,
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <React.Fragment>
+    <>
       <Header />
       <div>{children}</div>
       {windowSize.width > 768 && router.pathname === "/join" ? (
@@ -22,6 +35,11 @@ export default function Layout({ children }: any) {
       {windowSize.width > 768 && router.pathname === "/login" ? (
         <Footer />
       ) : null}
-    </React.Fragment>
+      {windowSize.width > 768 && router.pathname === "/products" ? (
+        <Footer />
+      ) : null}
+
+      {router.pathname === "/" ? <Footer /> : null}
+    </>
   );
 }

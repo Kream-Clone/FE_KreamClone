@@ -672,10 +672,12 @@ const BannerSlide = styled.div`
   .slick-next {
     position: absolute;
     right: 60px;
+    z-index: 2;
   }
   .slick-prev {
     position: absolute;
     left: 0;
+    z-index: 2;
   }
   .slick-dots {
     position: absolute;

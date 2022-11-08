@@ -34,6 +34,7 @@
     "react-slick": "^0.29.0",
     "react-virtualized-auto-sizer": "^1.0.4",
     "react-window": "^1.8.6",
+    "recoil": "^0.7.6",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.1",
     "styled-reset": "^4.3.4"
@@ -50,6 +51,7 @@
     "@types/react-dom": "^17.0.0",
     "@types/react-window": "^1.8.2",
     "@types/styled-components": "^5.1.7",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^4.14.1",
     "@typescript-eslint/eslint-plugin-tslint": "^4.14.1",
     "@typescript-eslint/parser": "^4.14.1",

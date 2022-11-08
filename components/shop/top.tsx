@@ -31,12 +31,10 @@ const SearchTop = styled.div`
     z-index: 100;
 `
 const TopBox = styled.div`
-    border: solid red 1px;
     margin: 0 auto;
     max-width: 1200px;
 `
 const SearchTitle =styled.div`
-  border: solid red 1px;
   display: flex;
     -webkit-box-align: center;
     align-items: center;
@@ -45,7 +43,6 @@ const SearchTitle =styled.div`
     padding: 0 10% 24px;
     position: relative;
     h2{
-      border: solid red 1px;
       overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -85,7 +82,6 @@ const QuickFilterBtn =styled.div`
     }
 `
 const Lux =styled.div`
-    border:solid red 1px;
     display: inline-block;
     padding: 10px 12px;
     height: 38px;
@@ -96,7 +92,6 @@ const Lux =styled.div`
     vertical-align: top;
 `
 const Clo =styled.div`
-  border:solid red 1px;
       display: inline-block;
     padding: 10px 12px;
     height: 38px;
