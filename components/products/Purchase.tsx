@@ -165,6 +165,7 @@ const SizeBtn = styled.div`
     line-height: 24px;
     letter-spacing: -.21px;
     font-weight: 700;
+    cursor: pointer;
     span{
       display: inline-block;
     vertical-align: top;
