@@ -3,10 +3,27 @@ import ExpressIcon from '../../Icon/express_icon.svg'
 import Bookmark from '../../Icon/bookmark.png'
 import BookmarkRed from '../../Icon/bookmark_red.png'
 import Comment from '../../Icon/comment_icon.png'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 export default function Item () {
 
   const [checkMark,setCheckMark] = useState(false);
+
+  const test = async () => {
+    return await axios
+      .get(`https://kellygarage.shop/search?idx=${5}`)
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((error)=>{
+        alert(error)
+      })
+  };
+  
+  useEffect(() => {
+      test()
+      console.log(2)
+  }, []);
 
   return (
     <SearchResult>
@@ -50,13 +67,13 @@ export default function Item () {
 
 
 const SearchResult =styled.div`
-
 `
 const ResultList =styled.div`
     margin: -20px -10px 0;
 `
 
 const ResultItem =styled.div`
+border: solid red 2px;
     width: 25%;
     position: relative;
     float: left;
