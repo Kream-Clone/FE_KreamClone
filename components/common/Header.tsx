@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { throttle } from "lodash";
 
 export default function Header() {
   const [menuBar, setMenuBar] = useState(false);
@@ -9,15 +10,19 @@ export default function Header() {
   const [scrollY, setScrollY] = useState(0);
   const [scrollActive, setScrollActive] = useState(false);
 
-  const scrollFixed = () => {
-    if (scrollY > 1) {
-      setScrollY(window.pageYOffset);
-      setScrollActive(true);
-    } else {
-      setScrollY(window.pageYOffset);
-      setScrollActive(false);
-    }
-  };
+  const scrollFixed = useMemo(
+    () =>
+      throttle(() => {
+        if (scrollY > 0) {
+          setScrollY(window.pageYOffset);
+          setScrollActive(true);
+        } else {
+          setScrollY(window.pageYOffset);
+          setScrollActive(false);
+        }
+      }, 800),
+    []
+  );
 
   useEffect(() => {
     const scrollListener = () => {
@@ -77,7 +82,7 @@ export default function Header() {
           </TopInner>
         </HeaderTop>
 
-        {scrollActive ? (
+        {scrollY > 0 ? (
           <HeaderMain style={{ borderBottom: "2px solid #eee" }}>
             <MainInner>
               <MainLogo>
@@ -132,32 +137,6 @@ export default function Header() {
             </MainTitleContainer>
           </HeaderMain>
         )}
-        {/* <HeaderMain>
-          <MainInner>
-            <MainLogo>
-              <Link href="/">
-                <Logo />
-              </Link>
-            </MainLogo>
-          </MainInner>
-          <MainTitleContainer>
-            <MainNav>
-              <MainUl>
-                <MainList>STYLE</MainList>
-                <Link href="/products">
-                  <MainList>SHOP</MainList>
-                </Link>
-                <MainList>ABOUT</MainList>
-              </MainUl>
-            </MainNav>
-            <SearchButtonBox>
-              <Link href="/shop">
-                <SearchIcon />
-              </Link>
-              <HambergerIcon onClick={onClickMenu} />
-            </SearchButtonBox>
-          </MainTitleContainer>
-        </HeaderMain> */}
       </HeaderContainer>
       {menuBar && (
         <NavigationWrap>
@@ -284,6 +263,7 @@ const HeaderTop = styled.ul`
 const TopInner = styled.li`
   list-style: none;
   margin-left: 24px;
+  cursor: pointer;
 `;
 const TopList = styled.a`
   display: flex;

@@ -1,14 +1,20 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { joinUserInfo, userEmail } from "Recoil/atom";
+import { useCallback, useRef, useState } from "react";
+import { useRecoilState, useRecoilValueLoadable } from "recoil";
+import {
+  joinUserEmail,
+  joinUserInfo,
+  joinUserPassword,
+  joinUserSize,
+} from "Recoil/atom";
 import styled from "styled-components";
 
 export default function Join() {
   const [modal, setModal] = useState<boolean>(false);
-  const [email, setEmail] = useRecoilState<string>(userEmail);
-  const [password, setPassword] = useState<string>("");
-  const [size, setSize] = useState<string>("");
+  const [email, setEmail] = useRecoilState<string>(joinUserEmail);
+  const [password, setPassword] = useRecoilState<string>(joinUserPassword);
+  const [size, setSize] = useRecoilState<string>(joinUserSize);
   const [sizeUpdate, setSizeUpdate] = useState<string>(size);
+  const submit = useRecoilValueLoadable(joinUserInfo);
 
   const [checkedButtons, setCheckedButtons] = useState([]);
   const outside = useRef();
@@ -16,13 +22,10 @@ export default function Join() {
   //오류메시지 상태저장
   const [emailMessage, setEmailMessage] = useState<string>("");
   const [passwordMessage, setPasswordMessage] = useState<string>("");
-  useState<string>("");
 
   // 유효성 검사
   const [isEmail, setIsEmail] = useState<boolean>(false);
   const [isPassword, setIsPassword] = useState<boolean>(false);
-
-  // const submit = useRecoilValue(joinUserInfo);
 
   const changeHandler = (checked, id) => {
     if (checked) {
@@ -50,7 +53,6 @@ export default function Join() {
         /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
       const emailCurrent = e.target.value;
       setEmail(emailCurrent);
-      console.log(emailCurrent);
 
       if (!emailRegex.test(emailCurrent)) {
         setEmailMessage("이메일 주소를 정확히 입력해주세요");
@@ -84,10 +86,10 @@ export default function Join() {
     []
   );
 
-  // const onClickSubmit = () => {
-  //   console.log(submit);
-  //   submit;
-  // };
+  const onClickSubmit = () => {
+    console.log(submit);
+    submit;
+  };
 
   return (
     <>
@@ -497,7 +499,7 @@ export default function Join() {
             {isAllChecked && isEmail && isPassword ? (
               <JoinButton
                 style={{ backgroundColor: "#222", cursor: "pointer" }}
-                // onClick={onClickSubmit}
+                onClick={onClickSubmit}
               >
                 가입하기
               </JoinButton>

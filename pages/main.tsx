@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import Slider from "react-slick";
+import { debounce, throttle } from "lodash";
+import { useEffect, useMemo, useState } from "react";
 
 export default function Main() {
   const settings = {
     infinite: true, // 무한반복
-    slidesToShow: 5, // 보여지는 슬라이드 개수
-    slidesToScroll: 5, // 넘어가는 슬라이드 개수
+    slidesToShow: 1, // 보여지는 슬라이드 개수
+    slidesToScroll: 1, // 넘어가는 슬라이드 개수
     dots: true, // 점 네비게이션 표시
     arrows: true, // 화살표 표시
     fade: true, // 페이드 효과
@@ -63,6 +65,42 @@ export default function Main() {
       },
     ],
   };
+
+  const [scrollY, setScrollY] = useState<number>(0);
+  const [scrollActive, setScrollActive] = useState<boolean>(false);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "auto",
+    });
+    setScrollActive(false);
+  };
+
+  const scrollFixed = useMemo(
+    () =>
+      throttle(() => {
+        if (scrollY > 0) {
+          setScrollY(window.pageYOffset);
+          setScrollActive(true);
+        } else {
+          setScrollY(window.pageYOffset);
+          setScrollActive(false);
+        }
+      }, 800),
+    []
+  );
+
+  useEffect(() => {
+    const scrollListener = () => {
+      window.addEventListener("scroll", scrollFixed);
+    };
+    scrollListener();
+    return () => {
+      window.removeEventListener("scroll", scrollFixed);
+    };
+  });
+
   return (
     <>
       <link
@@ -614,6 +652,11 @@ export default function Main() {
               <a>더보기</a>
             </ButtonProduct>
           </HomeProducts>
+          {scrollY > 0 ? (
+            <TopButton onClick={scrollToTop} />
+          ) : (
+            <TopButton style={{ display: "none" }} onClick={scrollToTop} />
+          )}
         </Home>
       </MainContainer>
     </>
@@ -1240,4 +1283,22 @@ const Badge = styled.div`
       no-repeat;
     background-size: 11px 13px;
   }
+`;
+
+const TopButton = styled.button`
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 48px;
+  padding-top: 4px;
+  border-radius: 30px;
+  -webkit-box-shadow: 0 2px 8px 0 rgb(0 0 0 / 10%);
+  box-shadow: 0 2px 8px 0 rgb(0 0 0 / 10%);
+  background-color: #fff;
+  z-index: 999;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROB6gXoOiN6xzczRBGfXfgIY4pEQCFFtML3yrwDh0Hbg&s);
+  background-size: 24px 24px;
+  background-position: center;
+  background-repeat: no-repeat;
 `;

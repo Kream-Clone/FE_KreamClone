@@ -1,28 +1,163 @@
 import Link from "next/link";
+import { useCallback, useState } from "react";
+import { useRecoilState, useRecoilValueLoadable } from "recoil";
+import { loginUserEmail, LoginUserInfo, loginUserPassword } from "Recoil/atom";
 import styled from "styled-components";
 
 export default function Login() {
+  const [email, setEmail] = useRecoilState<string>(loginUserEmail);
+  const [password, setPassword] = useRecoilState<string>(loginUserPassword);
+  const submit = useRecoilValueLoadable<string>(LoginUserInfo);
+
+  //오류메시지 상태저장
+  const [emailMessage, setEmailMessage] = useState<string>("");
+  const [passwordMessage, setPasswordMessage] = useState<string>("");
+
+  // 유효성 검사
+  const [isEmail, setIsEmail] = useState<boolean>(false);
+  const [isPassword, setIsPassword] = useState<boolean>(false);
+
+  // 유효성 검사 이메일
+  const onChangeEmail = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const emailRegex =
+        /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+      const emailCurrent = e.target.value;
+      setEmail(emailCurrent);
+
+      if (!emailRegex.test(emailCurrent)) {
+        setEmailMessage("이메일 주소를 정확히 입력해주세요");
+        setIsEmail(false);
+      } else {
+        setEmailMessage("");
+        setIsEmail(true);
+      }
+    },
+    []
+  );
+
+  // 유효성 검사 비밀번호
+  const onChangePassword = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const passwordRegex =
+        /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
+      const passwordCurrent = e.target.value;
+      setPassword(passwordCurrent);
+
+      if (!passwordRegex.test(passwordCurrent)) {
+        setPasswordMessage(
+          "영문, 숫자, 특수문자를 조합하여 입력해주세요. (8-16자)"
+        );
+        setIsPassword(false);
+      } else {
+        setPasswordMessage("");
+        setIsPassword(true);
+      }
+    },
+    []
+  );
+
   return (
     <>
       <LoginContainer>
         <LoginArea>
-          <LoginTitle></LoginTitle>
-          <LoginInputBox>
-            <InputTitle>이메일 주소</InputTitle>
-            <InputItem>
-              <InputTxt
-                type="text"
-                placeholder="예) kream@kream.co.kr"
-              ></InputTxt>
-            </InputItem>
-          </LoginInputBox>
+          <LoginTitle />
+          {email.length > 0 ? (
+            <LoginInputBox>
+              {isEmail ? (
+                <InputTitle>이메일 주소 *</InputTitle>
+              ) : (
+                <InputTitle style={{ color: "#f15746" }}>
+                  이메일 주소 *
+                </InputTitle>
+              )}
+              <InputItem>
+                {isEmail ? (
+                  <InputTxt
+                    onChange={onChangeEmail}
+                    value={email}
+                    type="email"
+                    placeholder="예) kream@kream.co.kr"
+                  />
+                ) : (
+                  <InputTxt
+                    style={{ borderBottom: "1px solid #f15746" }}
+                    onChange={onChangeEmail}
+                    value={email}
+                    type="email"
+                    placeholder="예) kream@kream.co.kr"
+                  />
+                )}
 
-          <LoginInputBox>
-            <InputTitle>비밀번호</InputTitle>
-            <InputItem>
-              <InputTxt type="password" autoComplete="off"></InputTxt>
-            </InputItem>
-          </LoginInputBox>
+                <InputError
+                  className={`message ${isEmail ? "success" : "error"}`}
+                >
+                  {emailMessage}
+                </InputError>
+              </InputItem>
+            </LoginInputBox>
+          ) : (
+            <LoginInputBox>
+              <InputTitle>이메일 주소</InputTitle>
+              <InputItem>
+                <InputTxt
+                  onChange={onChangeEmail}
+                  value={email}
+                  type="email"
+                  placeholder="예) kream@kream.co.kr"
+                />
+              </InputItem>
+            </LoginInputBox>
+          )}
+
+          {password.length > 0 ? (
+            <LoginInputBox>
+              {isPassword ? (
+                <InputTitle>비밀번호 *</InputTitle>
+              ) : (
+                <InputTitle style={{ color: "#f15746" }}>비밀번호 *</InputTitle>
+              )}
+              <InputItem>
+                {isPassword ? (
+                  <InputTxt
+                    onChange={onChangePassword}
+                    value={password}
+                    type="password"
+                    placeholder="영문,숫자,특수문자 조합 8~16자"
+                    autoComplete="off"
+                  />
+                ) : (
+                  <InputTxt
+                    style={{ borderBottom: "1px solid #f15746" }}
+                    onChange={onChangePassword}
+                    value={password}
+                    type="password"
+                    placeholder="영문,숫자,특수문자 조합 8~16자"
+                    autoComplete="off"
+                  />
+                )}
+
+                <InputError
+                  className={`message ${isPassword ? "success" : "error"}`}
+                >
+                  {passwordMessage}
+                </InputError>
+              </InputItem>
+            </LoginInputBox>
+          ) : (
+            <LoginInputBox>
+              <InputTitle>비밀번호</InputTitle>
+              <InputItem>
+                <InputTxt
+                  onChange={onChangePassword}
+                  value={password}
+                  type="password"
+                  placeholder="영문,숫자,특수문자 조합 8~16자"
+                  autoComplete="off"
+                />
+              </InputItem>
+            </LoginInputBox>
+          )}
 
           <LoginButtonBox>
             <LoginButton>로그인</LoginButton>
@@ -116,6 +251,13 @@ const InputTitle = styled.h3`
 const InputItem = styled.div`
   position: relative;
 `;
+const InputError = styled.p`
+  display: block;
+  position: absolute;
+  line-height: 16px;
+  font-size: 11px;
+  color: #f15746;
+`;
 const InputTxt = styled.input`
   padding-right: 30px;
   height: 38px;
@@ -165,6 +307,7 @@ const LookList = styled.li`
   align-items: flex-start;
   -webkit-box-flex: 1;
   flex: 1;
+  cursor: pointer;
   &:nth-child(2) {
     border-left: 1px solid #d3d3d3;
   }
