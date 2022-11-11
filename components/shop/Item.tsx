@@ -3,48 +3,62 @@ import ExpressIcon from '../../Icon/express_icon.svg'
 import Bookmark from '../../Icon/bookmark.png'
 import BookmarkRed from '../../Icon/bookmark_red.png'
 import Comment from '../../Icon/comment_icon.png'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import axios from 'axios'
+import { throttle } from 'lodash';
+import useInfiniteScroll from 'components/hooks/useInfiniteScroll'
+
 export default function Item () {
 
   const [checkMark,setCheckMark] = useState(false);
 
-  const test = async () => {
+  const [data, setData] = useState([])
+
+  const [page, setPage] = useState(10)
+
+  const getData = async () => {
     return await axios
-      .get(`https://kellygarage.shop/search?idx=${5}`)
+      .get(`http://kellystorage.shop/search?idx=${page}`)
       .then((res) => {
-        console.log(res)
+        let reverseData = res.data.data.reverse()
+        setData(data.concat(reverseData))
+        setPage((pre)=>pre+10)
       })
       .catch((error)=>{
         alert(error)
       })
   };
-  
+
+  const { isEnd } = useInfiniteScroll({ onScrollEnd: getData });
+
+
   useEffect(() => {
-      test()
-      console.log(2)
+    getData()
   }, []);
 
+
+  console.log()
   return (
     <SearchResult>
     <ResultList>
-      <ResultItem>
+      {data.map((item)=>   
+      <ResultItem key={item.id}>
         <ItemInner>
           <Product>
-            <img></img>
+            <img src={item.productImage}></img>
           </Product>
           <ProductInfo>
             <Title>
-              <p>Nike</p>
-              <p>Nike Air Force 1 '07 Low White</p>
-              <p>나이키 에어포스 1 '07 로우 화이트</p>
+              <p>{item.brand}</p>
+              <p>{item.name}</p>
+              <p>{item.translatedName}</p>
             </Title>
             <ExpressBtn>
               <img src={ExpressIcon}></img>
               <span>빠른배송</span>
             </ExpressBtn>
             <Price>
-              <Amount> 131,000원 </Amount>
+              <Amount>{item.price}</Amount>
               <Desc>즉시구매가</Desc>
             </Price>
           </ProductInfo>
@@ -59,7 +73,7 @@ export default function Item () {
             <span>13.1만</span>
           </Wish>
         </Figure>
-      </ResultItem>
+      </ResultItem>)}
     </ResultList>
   </SearchResult>
   )

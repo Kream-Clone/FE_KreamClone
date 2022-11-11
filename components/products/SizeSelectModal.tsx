@@ -9,30 +9,30 @@ interface propsType  {
 export default function SizeSelectModal ({modalRef, modalOutSideClick,closeModal}:propsType) {
   return (
     <AllSizeModal ref={modalRef} onClick={(e)=>modalOutSideClick(e)}>
-    <LayerContainer>
-      <LayerHeader>
-        <Title>
-          <span>사이즈</span>
-        </Title>
-      </LayerHeader>
-      <LayerContent>
-        <SelectArea>
-          <SelectList>
-            <SelectItem>
-              <SelectLink>
-                <LinkInner>
-                  <InnerSize>모든사이즈</InnerSize>
-                  <InnerPrice>245,000</InnerPrice>
-                </LinkInner>
-              </SelectLink>
-            </SelectItem>
-          </SelectList>
-        </SelectArea>
-      </LayerContent>
-      <CloseBtn onClick={()=>closeModal()}>
-        <img src="" alt="" />
-      </CloseBtn>
-    </LayerContainer>
+      <LayerContainer>
+        <LayerHeader>
+          <Title>
+            <span>사이즈</span>
+          </Title>
+        </LayerHeader>
+        <LayerContent>
+          <SelectArea>
+            <SelectList>
+              <SelectItem>
+                <SelectLink>
+                  <LinkInner>
+                    <InnerSize>모든사이즈</InnerSize>
+                    <InnerPrice>245,000</InnerPrice>
+                  </LinkInner>
+                </SelectLink>
+              </SelectItem>
+            </SelectList>
+          </SelectArea>
+        </LayerContent>
+        <CloseBtn onClick={()=>closeModal()}>
+          <img src="" alt="" />
+        </CloseBtn>
+      </LayerContainer>
   </AllSizeModal>
   )
 }
