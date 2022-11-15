@@ -3,6 +3,8 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 
+
+
 module.exports = withBundleAnalyzer({
   target: "serverless",
   env: {
@@ -10,11 +12,11 @@ module.exports = withBundleAnalyzer({
   },
   compiler: {
     // Enables the styled-components SWC transform
-    styledComponents: true
+    styledComponents: true,
   },
+  
 
   webpack(conf) {
-
     conf.module.rules.push({
       test: /\.svg$/,
       use: [
@@ -37,12 +39,26 @@ module.exports = withBundleAnalyzer({
         },
       ],
     });
+    
     // 절대경로
     conf.resolve.modules.push(__dirname);
     return conf;
   },
 });
 
+// const nextConfig = {
+//   reactStrictMode: true,
+//   async rewrites() {
+//     return [
+//       {
+//         source: "/:path*",
+//         destination: `http://54.180.134.46/:path*`,
+//       },
+//     ];
+//   },
+// };
+
 const withImages = require('next-images');
 
 module.exports = withImages();
+// module.exports = nextConfig;

@@ -2,6 +2,7 @@ import styled, { keyframes } from "styled-components";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { throttle } from "lodash";
+import { useRouter } from "next/dist/client/router";
 
 export default function Header() {
   const [menuBar, setMenuBar] = useState(false);
@@ -9,6 +10,8 @@ export default function Header() {
 
   const [scrollY, setScrollY] = useState(0);
   const [scrollActive, setScrollActive] = useState(false);
+
+  const router = useRouter();
 
   const scrollFixed = useMemo(
     () =>
@@ -94,15 +97,27 @@ export default function Header() {
             <MainTitleContainer>
               <MainNav>
                 <MainUl>
-                  <MainList>STYLE</MainList>
-                  <Link href="/products">
-                    <MainList>SHOP</MainList>
+                  <Link href="/social/trending">
+                    {router.pathname === "/social/trending" ? (
+                      <MainList style={{ fontWeight: "bold" }}>STYLE</MainList>
+                    ) : (
+                      <MainList>STYLE</MainList>
+                    )}
+                  </Link>
+                  <Link href="/shop">
+                    {router.pathname === "/shop" ? (
+                      <TargetMainList style={{ fontWeight: "bold" }}>
+                        SHOP
+                      </TargetMainList>
+                    ) : (
+                      <MainList>SHOP</MainList>
+                    )}
                   </Link>
                   <MainList>ABOUT</MainList>
                 </MainUl>
               </MainNav>
               <SearchButtonBox>
-                <Link href="/shop">
+                <Link href="/products">
                   <SearchIcon />
                 </Link>
                 <HambergerIcon onClick={onClickMenu} />
@@ -121,15 +136,25 @@ export default function Header() {
             <MainTitleContainer>
               <MainNav>
                 <MainUl>
-                  <MainList>STYLE</MainList>
-                  <Link href="/products">
-                    <MainList>SHOP</MainList>
+                  <Link href="/social/trending">
+                    {router.pathname === "/social/trending" ? (
+                      <TargetMainList>STYLE</TargetMainList>
+                    ) : (
+                      <MainList>STYLE</MainList>
+                    )}
+                  </Link>
+                  <Link href="/shop">
+                    {router.pathname === "/shop" ? (
+                      <TargetMainList>SHOP</TargetMainList>
+                    ) : (
+                      <MainList>SHOP</MainList>
+                    )}
                   </Link>
                   <MainList>ABOUT</MainList>
                 </MainUl>
               </MainNav>
               <SearchButtonBox>
-                <Link href="/shop">
+                <Link href="/products">
                   <SearchIcon />
                 </Link>
                 <HambergerIcon onClick={onClickMenu} />
@@ -342,6 +367,21 @@ const MainUl = styled.ul`
   }
   cursor: pointer;
 `;
+
+const TargetMainList = styled.li`
+  margin-right: 40px;
+  font-size: 15px;
+  color: ${(props) => props.theme.color.black};
+  font-weight: bold;
+  &::after {
+    content: "";
+    height: 2px;
+    background: black;
+    display: block;
+    margin-top: 2px;
+  }
+`;
+
 const MainList = styled.li`
   margin-right: 40px;
   font-size: 15px;

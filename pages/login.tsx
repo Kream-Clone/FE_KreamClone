@@ -1,3 +1,5 @@
+import Seo from "components/common/Seo";
+import Head from "next/head";
 import Link from "next/link";
 import { useCallback, useState } from "react";
 import { useRecoilState, useRecoilValueLoadable } from "recoil";
@@ -59,6 +61,7 @@ export default function Login() {
 
   return (
     <>
+      <Seo title="KREAM | 한정판 거래의 FLEX" />
       <LoginContainer>
         <LoginArea>
           <LoginTitle />

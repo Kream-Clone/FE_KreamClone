@@ -1,21 +1,27 @@
+import axios from "axios";
+import Seo from "components/common/Seo";
 import { useCallback, useRef, useState } from "react";
-import { useRecoilState, useRecoilValueLoadable } from "recoil";
+import { useRecoilState } from "recoil";
 import {
   joinUserEmail,
   joinUserInfo,
   joinUserPassword,
   joinUserSize,
 } from "Recoil/atom";
+import { Cookies } from "react-cookie";
 import styled from "styled-components";
 
-export default function Join() {
+export default function Join({ res }) {
   const [modal, setModal] = useState<boolean>(false);
   const [email, setEmail] = useRecoilState<string>(joinUserEmail);
   const [password, setPassword] = useRecoilState<string>(joinUserPassword);
-  const [size, setSize] = useRecoilState<string>(joinUserSize);
-  const [sizeUpdate, setSizeUpdate] = useState<string>(size);
-  const submit = useRecoilValueLoadable(joinUserInfo);
+  const [shoeSize, setShoeSize] = useRecoilState<string>(joinUserSize);
+  const [shoeSizeUpdate, setShoeSizeUpdate] = useState<string>(shoeSize);
 
+  const userInfo = { email, password, shoeSize };
+  // const submit = useRecoilValue(joinUserInfo);
+
+  // console.log(submit);
   const [checkedButtons, setCheckedButtons] = useState([]);
   const outside = useRef();
 
@@ -38,12 +44,12 @@ export default function Join() {
   const isAllChecked = checkedButtons.length === 2;
 
   const handleClick = (e) => {
-    setSize(e.currentTarget.id);
+    setShoeSize(e.currentTarget.id);
   };
 
   const handleForm = () => {
     setModal(false);
-    setSizeUpdate(size);
+    setShoeSizeUpdate(shoeSize);
   };
 
   // 유효성 검사 이메일
@@ -86,13 +92,33 @@ export default function Join() {
     []
   );
 
+  const callApi = async () => {
+    try {
+      const res = await axios.post("http://54.180.134.46/join", {
+        email,
+        password,
+        shoeSize,
+      });
+
+      if (res.status === 200) {
+        // return Cookies.set("asd");
+      }
+      console.log(res);
+      // res.setHeader()
+      localStorage.setItem("Au", "aaa");
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const onClickSubmit = () => {
-    console.log(submit);
-    submit;
+    callApi();
   };
 
   return (
     <>
+      <Seo title="KREAM | 한정판 거래의 FLEX" />
       <JoinContainer>
         <JoinArea>
           <JoinTitle>회원가입</JoinTitle>
@@ -202,7 +228,7 @@ export default function Join() {
                 placeholder="선택하세요"
                 autoComplete="off"
                 onChange={handleClick}
-                value={sizeUpdate}
+                value={shoeSizeUpdate}
               ></InputTxt>
             </InputItem>
           </JoinInputBox>
@@ -223,8 +249,8 @@ export default function Join() {
                     <SizeItem>
                       <SizeButton
                         style={{
-                          fontWeight: size === "220" ? "bold" : null,
-                          borderColor: size === "220" ? "#333" : null,
+                          fontWeight: shoeSize === "220" ? "bold" : null,
+                          borderColor: shoeSize === "220" ? "#333" : null,
                         }}
                         id="220"
                         onClick={handleClick}
@@ -235,8 +261,8 @@ export default function Join() {
                     <SizeItem>
                       <SizeButton
                         style={{
-                          fontWeight: size === "225" ? "bold" : null,
-                          borderColor: size === "225" ? "#333" : null,
+                          fontWeight: shoeSize === "225" ? "bold" : null,
+                          borderColor: shoeSize === "225" ? "#333" : null,
                         }}
                         id="225"
                         onClick={handleClick}
@@ -247,8 +273,8 @@ export default function Join() {
                     <SizeItem>
                       <SizeButton
                         style={{
-                          fontWeight: size === "230" ? "bold" : null,
-                          borderColor: size === "230" ? "#333" : null,
+                          fontWeight: shoeSize === "230" ? "bold" : null,
+                          borderColor: shoeSize === "230" ? "#333" : null,
                         }}
                         id="230"
                         onClick={handleClick}
@@ -259,8 +285,8 @@ export default function Join() {
                     <SizeItem>
                       <SizeButton
                         style={{
-                          fontWeight: size === "235" ? "bold" : null,
-                          borderColor: size === "235" ? "#333" : null,
+                          fontWeight: shoeSize === "235" ? "bold" : null,
+                          borderColor: shoeSize === "235" ? "#333" : null,
                         }}
                         id="235"
                         onClick={handleClick}
@@ -271,8 +297,8 @@ export default function Join() {
                     <SizeItem>
                       <SizeButton
                         style={{
-                          fontWeight: size === "240" ? "bold" : null,
-                          borderColor: size === "240" ? "#333" : null,
+                          fontWeight: shoeSize === "240" ? "bold" : null,
+                          borderColor: shoeSize === "240" ? "#333" : null,
                         }}
                         id="240"
                         onClick={handleClick}
@@ -283,8 +309,8 @@ export default function Join() {
                     <SizeItem>
                       <SizeButton
                         style={{
-                          fontWeight: size === "245" ? "bold" : null,
-                          borderColor: size === "245" ? "#333" : null,
+                          fontWeight: shoeSize === "245" ? "bold" : null,
+                          borderColor: shoeSize === "245" ? "#333" : null,
                         }}
                         id="245"
                         onClick={handleClick}
@@ -295,8 +321,8 @@ export default function Join() {
                     <SizeItem>
                       <SizeButton
                         style={{
-                          fontWeight: size === "250" ? "bold" : null,
-                          borderColor: size === "250" ? "#333" : null,
+                          fontWeight: shoeSize === "250" ? "bold" : null,
+                          borderColor: shoeSize === "250" ? "#333" : null,
                         }}
                         id="250"
                         onClick={handleClick}
@@ -307,8 +333,8 @@ export default function Join() {
                     <SizeItem>
                       <SizeButton
                         style={{
-                          fontWeight: size === "255" ? "bold" : null,
-                          borderColor: size === "255" ? "#333" : null,
+                          fontWeight: shoeSize === "255" ? "bold" : null,
+                          borderColor: shoeSize === "255" ? "#333" : null,
                         }}
                         id="255"
                         onClick={handleClick}
@@ -319,8 +345,8 @@ export default function Join() {
                     <SizeItem>
                       <SizeButton
                         style={{
-                          fontWeight: size === "260" ? "bold" : null,
-                          borderColor: size === "260" ? "#333" : null,
+                          fontWeight: shoeSize === "260" ? "bold" : null,
+                          borderColor: shoeSize === "260" ? "#333" : null,
                         }}
                         id="260"
                         onClick={handleClick}
@@ -331,8 +357,8 @@ export default function Join() {
                     <SizeItem>
                       <SizeButton
                         style={{
-                          fontWeight: size === "265" ? "bold" : null,
-                          borderColor: size === "265" ? "#333" : null,
+                          fontWeight: shoeSize === "265" ? "bold" : null,
+                          borderColor: shoeSize === "265" ? "#333" : null,
                         }}
                         id="265"
                         onClick={handleClick}
@@ -343,8 +369,8 @@ export default function Join() {
                     <SizeItem>
                       <SizeButton
                         style={{
-                          fontWeight: size === "270" ? "bold" : null,
-                          borderColor: size === "270" ? "#333" : null,
+                          fontWeight: shoeSize === "270" ? "bold" : null,
+                          borderColor: shoeSize === "270" ? "#333" : null,
                         }}
                         id="270"
                         onClick={handleClick}
@@ -355,8 +381,8 @@ export default function Join() {
                     <SizeItem>
                       <SizeButton
                         style={{
-                          fontWeight: size === "275" ? "bold" : null,
-                          borderColor: size === "275" ? "#333" : null,
+                          fontWeight: shoeSize === "275" ? "bold" : null,
+                          borderColor: shoeSize === "275" ? "#333" : null,
                         }}
                         id="275"
                         onClick={handleClick}
@@ -367,8 +393,8 @@ export default function Join() {
                     <SizeItem>
                       <SizeButton
                         style={{
-                          fontWeight: size === "280" ? "bold" : null,
-                          borderColor: size === "280" ? "#333" : null,
+                          fontWeight: shoeSize === "280" ? "bold" : null,
+                          borderColor: shoeSize === "280" ? "#333" : null,
                         }}
                         id="280"
                         onClick={handleClick}
@@ -379,8 +405,8 @@ export default function Join() {
                     <SizeItem>
                       <SizeButton
                         style={{
-                          fontWeight: size === "285" ? "bold" : null,
-                          borderColor: size === "285" ? "#333" : null,
+                          fontWeight: shoeSize === "285" ? "bold" : null,
+                          borderColor: shoeSize === "285" ? "#333" : null,
                         }}
                         id="285"
                         onClick={handleClick}
@@ -391,8 +417,8 @@ export default function Join() {
                     <SizeItem>
                       <SizeButton
                         style={{
-                          fontWeight: size === "290" ? "bold" : null,
-                          borderColor: size === "290" ? "#333" : null,
+                          fontWeight: shoeSize === "290" ? "bold" : null,
+                          borderColor: shoeSize === "290" ? "#333" : null,
                         }}
                         id="290"
                         onClick={handleClick}
@@ -403,8 +429,8 @@ export default function Join() {
                     <SizeItem>
                       <SizeButton
                         style={{
-                          fontWeight: size === "295" ? "bold" : null,
-                          borderColor: size === "295" ? "#333" : null,
+                          fontWeight: shoeSize === "295" ? "bold" : null,
+                          borderColor: shoeSize === "295" ? "#333" : null,
                         }}
                         id="295"
                         onClick={handleClick}
@@ -415,8 +441,8 @@ export default function Join() {
                     <SizeItem>
                       <SizeButton
                         style={{
-                          fontWeight: size === "300" ? "bold" : null,
-                          borderColor: size === "300" ? "#333" : null,
+                          fontWeight: shoeSize === "300" ? "bold" : null,
+                          borderColor: shoeSize === "300" ? "#333" : null,
                         }}
                         id="300"
                         onClick={handleClick}

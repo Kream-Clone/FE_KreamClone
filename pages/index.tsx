@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Login from "./login";
 import Main from "./main";
 
 const Index = () => {
