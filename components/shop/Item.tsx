@@ -7,6 +7,8 @@ import { useCallback, useEffect, useState } from 'react'
 import axios from 'axios'
 import { throttle } from 'lodash';
 import useInfiniteScroll from 'components/hooks/useInfiniteScroll'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { dataState, getData2,pageData } from 'Recoil/itemList'
 
 export default function Item () {
 
@@ -36,8 +38,6 @@ export default function Item () {
     getData()
   }, []);
 
-
-  console.log()
   return (
     <SearchResult>
     <ResultList>
