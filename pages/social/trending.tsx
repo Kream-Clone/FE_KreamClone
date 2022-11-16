@@ -1,3 +1,4 @@
+import axios from "axios";
 import Seo from "components/common/Seo";
 import { useState } from "react";
 import styled from "styled-components";
@@ -23,6 +24,16 @@ export default function Trending() {
     setFocusFamous(false);
     setFocusNew(false);
   };
+
+  const onClickLogin = async () => {
+    try {
+      const res = await axios.get("http://54.180.134.46/join");
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <>
       <TrendingContainer>

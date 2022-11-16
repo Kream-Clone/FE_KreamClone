@@ -1,27 +1,15 @@
 import axios from "axios";
 import Seo from "components/common/Seo";
 import { useCallback, useRef, useState } from "react";
-import { useRecoilState } from "recoil";
-import {
-  joinUserEmail,
-  joinUserInfo,
-  joinUserPassword,
-  joinUserSize,
-} from "Recoil/atom";
-import { Cookies } from "react-cookie";
 import styled from "styled-components";
 
 export default function Join({ res }) {
   const [modal, setModal] = useState<boolean>(false);
-  const [email, setEmail] = useRecoilState<string>(joinUserEmail);
-  const [password, setPassword] = useRecoilState<string>(joinUserPassword);
-  const [shoeSize, setShoeSize] = useRecoilState<string>(joinUserSize);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [shoeSize, setShoeSize] = useState<string>("");
   const [shoeSizeUpdate, setShoeSizeUpdate] = useState<string>(shoeSize);
 
-  const userInfo = { email, password, shoeSize };
-  // const submit = useRecoilValue(joinUserInfo);
-
-  // console.log(submit);
   const [checkedButtons, setCheckedButtons] = useState([]);
   const outside = useRef();
 
@@ -92,7 +80,7 @@ export default function Join({ res }) {
     []
   );
 
-  const callApi = async () => {
+  const joinApi = async () => {
     try {
       const res = await axios.post("http://54.180.134.46/join", {
         email,
@@ -101,11 +89,8 @@ export default function Join({ res }) {
       });
 
       if (res.status === 200) {
-        // return Cookies.set("asd");
+        window.localStorage.setItem("authorization", res.headers.authorization);
       }
-      console.log(res);
-      // res.setHeader()
-      localStorage.setItem("Au", "aaa");
       return res.data;
     } catch (err) {
       console.log(err);
@@ -113,7 +98,7 @@ export default function Join({ res }) {
   };
 
   const onClickSubmit = () => {
-    callApi();
+    joinApi();
   };
 
   return (

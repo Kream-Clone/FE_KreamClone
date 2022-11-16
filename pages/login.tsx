@@ -1,15 +1,14 @@
+import axios from "axios";
 import Seo from "components/common/Seo";
-import Head from "next/head";
+import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
-import { useCallback, useState } from "react";
-import { useRecoilState, useRecoilValueLoadable } from "recoil";
-import { loginUserEmail, LoginUserInfo, loginUserPassword } from "Recoil/atom";
+import { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 
 export default function Login() {
-  const [email, setEmail] = useRecoilState<string>(loginUserEmail);
-  const [password, setPassword] = useRecoilState<string>(loginUserPassword);
-  const submit = useRecoilValueLoadable<string>(LoginUserInfo);
+  const router = useRouter();
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   //오류메시지 상태저장
   const [emailMessage, setEmailMessage] = useState<string>("");
@@ -18,6 +17,25 @@ export default function Login() {
   // 유효성 검사
   const [isEmail, setIsEmail] = useState<boolean>(false);
   const [isPassword, setIsPassword] = useState<boolean>(false);
+
+  const accessToken = window.localStorage.getItem;
+
+  const onClickLogin = async () => {
+    try {
+      const res = await axios.get("http://54.180.134.46/join", {
+        headers: {
+          authorization: accessToken,
+        },
+      });
+
+      if (res.status === 200) {
+        router.push("/");
+      }
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   // 유효성 검사 이메일
   const onChangeEmail = useCallback(
@@ -162,7 +180,7 @@ export default function Login() {
             </LoginInputBox>
           )}
 
-          <LoginButtonBox>
+          <LoginButtonBox onClick={onClickLogin}>
             <LoginButton>로그인</LoginButton>
           </LoginButtonBox>
 
