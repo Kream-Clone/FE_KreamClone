@@ -6,9 +6,9 @@
   "author": "Lee Jeong Min <jeongmin.2@navercorp.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider next dev",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider next build && next export",
     "debug": "NODE_OPTIONS='--inspect' next dev",
-    "build": "next build",
     "start": "next start",
     "export": "next export",
     "type-check": "tsc",
@@ -36,7 +36,8 @@
     "react-window": "^1.8.6",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.1",
-    "styled-reset": "^4.3.4"
+    "styled-reset": "^4.3.4",
+    "start": "react-scripts --openssl-legacy-provider start"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
