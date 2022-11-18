@@ -9,7 +9,7 @@
     "dev": "next",
     "debug": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
     "export": "next export",
     "type-check": "tsc",
     "eslint": "eslint .",
