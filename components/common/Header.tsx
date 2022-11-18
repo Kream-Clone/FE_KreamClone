@@ -13,6 +13,14 @@ export default function Header() {
 
   const router = useRouter();
 
+  const onClickLogout = () => {
+    localStorage.removeItem("authorization");
+  };
+  const accessToken =
+    typeof window !== "undefined"
+      ? localStorage.getItem("authorization")
+      : null;
+
   const scrollFixed = useMemo(
     () =>
       throttle(() => {
@@ -48,7 +56,7 @@ export default function Header() {
   return (
     <>
       <HeaderContainer>
-        {style && (
+        {style && router.pathname === "/" ? (
           <DownloadBanner>
             <BannerBox>
               <Thumb>
@@ -66,7 +74,7 @@ export default function Header() {
               <Close onClick={onClickClose} />
             </BtnClose>
           </DownloadBanner>
-        )}
+        ) : null}
 
         <HeaderTop>
           <TopInner>
@@ -79,9 +87,15 @@ export default function Header() {
             <TopList>마이페이지</TopList>
           </TopInner>
           <TopInner>
-            <Link href="/login">
-              <TopList>로그인</TopList>
-            </Link>
+            {accessToken ? (
+              <Link href="/login">
+                <TopList onClick={onClickLogout}>로그아웃</TopList>
+              </Link>
+            ) : (
+              <Link href="/login">
+                <TopList>로그인</TopList>
+              </Link>
+            )}
           </TopInner>
         </HeaderTop>
 
@@ -170,10 +184,14 @@ export default function Header() {
             <NavigationInner>
               <NavList>
                 <NavItem>
-                  <NavLink>STYLE</NavLink>
+                  <Link href="/social/trending">
+                    <NavLink>STYLE</NavLink>
+                  </Link>
                 </NavItem>
                 <NavItem>
-                  <NavLink>SHOP</NavLink>
+                  <Link href="/shop">
+                    <NavLink>SHOP</NavLink>
+                  </Link>
                 </NavItem>
                 <NavItem>
                   <NavLink>자주 묻는 질문</NavLink>
@@ -215,7 +233,7 @@ const HeaderContainer = styled.div`
 const DownloadBanner = styled.div`
   display: none;
   @media (max-width: 768px) {
-    display: block;
+    display: flex;
     padding: 0 24px;
     height: 70px;
     display: -webkit-box;

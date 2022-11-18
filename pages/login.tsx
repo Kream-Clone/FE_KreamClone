@@ -18,19 +18,17 @@ export default function Login() {
   const [isEmail, setIsEmail] = useState<boolean>(false);
   const [isPassword, setIsPassword] = useState<boolean>(false);
 
-  const accessToken = window.localStorage.getItem;
-
-  const onClickLogin = async () => {
+  const loginApi = async () => {
     try {
-      const res = await axios.get("http://54.180.134.46/join", {
-        headers: {
-          authorization: accessToken,
-        },
+      const res = await axios.post("http://sparta-mysoo.shop/login", {
+        email,
+        password,
       });
-
       if (res.status === 200) {
         router.push("/");
+        window.localStorage.setItem("authorization", res.headers.authorization);
       }
+      console.log(res);
       return res.data;
     } catch (err) {
       console.log(err);
@@ -180,8 +178,17 @@ export default function Login() {
             </LoginInputBox>
           )}
 
-          <LoginButtonBox onClick={onClickLogin}>
-            <LoginButton>로그인</LoginButton>
+          <LoginButtonBox>
+            {isEmail && isPassword ? (
+              <LoginButton
+                style={{ backgroundColor: "#222", cursor: "pointer" }}
+                onClick={loginApi}
+              >
+                로그인
+              </LoginButton>
+            ) : (
+              <LoginButton>로그인</LoginButton>
+            )}
           </LoginButtonBox>
 
           <LookBox>

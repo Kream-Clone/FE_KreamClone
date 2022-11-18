@@ -1,9 +1,11 @@
 import axios from "axios";
 import Seo from "components/common/Seo";
+import { useRouter } from "next/dist/client/router";
 import { useCallback, useRef, useState } from "react";
 import styled from "styled-components";
 
-export default function Join({ res }) {
+export default function Join() {
+  const router = useRouter();
   const [modal, setModal] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -80,25 +82,21 @@ export default function Join({ res }) {
     []
   );
 
-  const joinApi = async () => {
+  const onClickSubmit = async () => {
     try {
-      const res = await axios.post("http://54.180.134.46/join", {
+      const res = await axios.post("http://sparta-mysoo.shop/join", {
         email,
         password,
         shoeSize,
       });
-
       if (res.status === 200) {
-        window.localStorage.setItem("authorization", res.headers.authorization);
+        router.push("/login");
+        console.log(res);
       }
       return res.data;
     } catch (err) {
       console.log(err);
     }
-  };
-
-  const onClickSubmit = () => {
-    joinApi();
   };
 
   return (

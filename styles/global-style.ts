@@ -9,11 +9,7 @@ export const GlobalStyle = createGlobalStyle`
         margin:0;
         padding:0;
         box-sizing:border-box;
-<<<<<<< HEAD
     }
-=======
-    }a
->>>>>>> ea3b2080473019c76c2c3a8a7d1e229ecc82baf2
     li{
         cursor:pointer;
     }
@@ -47,11 +43,7 @@ export const GlobalStyle = createGlobalStyle`
         outline: none;
         border: none;
     }
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> ea3b2080473019c76c2c3a8a7d1e229ecc82baf2
     html{
         font-size: 11px;
         -webkit-text-size-adjust: none;
