@@ -6,25 +6,24 @@
   "author": "Lee Jeong Min <jeongmin.2@navercorp.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider next dev",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider next build && next export",
     "debug": "NODE_OPTIONS='--inspect' next dev",
-    "build": "next build",
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "next start",
     "export": "next export",
     "type-check": "tsc",
     "eslint": "eslint .",
     "analyze": "ANALYZE=true next build",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "deploy": "next build && next export"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^10.0.7",
     "@types/react-slick": "^0.23.10",
     "axios": "^1.1.3",
     "babel-plugin-styled-components": "^1.12.0",
-    "css-loader": "^5.0.2",
-    "file-loader": "^6.2.0",
     "lodash": "^4.17.21",
     "next": "^10.0.5",
     "next-images": "^1.8.4",
@@ -35,10 +34,10 @@
     "react-slick": "^0.29.0",
     "react-virtualized-auto-sizer": "^1.0.4",
     "react-window": "^1.8.6",
-    "recoil": "^0.7.6",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.1",
-    "styled-reset": "^4.3.4"
+    "styled-reset": "^4.3.4",
+    "start": "react-scripts --openssl-legacy-provider start"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
@@ -47,6 +46,7 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@types/axios": "^0.14.0",
+    "@types/lodash": "^4.14.188",
     "@types/node": "^14.14.22",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
