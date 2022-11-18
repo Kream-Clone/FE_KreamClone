@@ -16,7 +16,8 @@
     "analyze": "ANALYZE=true next build",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "deploy": "next build && next export"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^10.0.7",
