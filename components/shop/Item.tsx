@@ -62,7 +62,6 @@ export default function Item() {
                 itemProductImage: item.productImage,
               },
             }}
-            key={item.id}
           >
             <ResultItem
               onClick={() => {
